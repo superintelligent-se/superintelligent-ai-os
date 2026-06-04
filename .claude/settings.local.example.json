@@ -1,0 +1,6 @@
+{
+  "comment": "Kopiera den här filen till settings.local.json för personliga inställningar. Den filen är blockerad av .gitignore och ska INTE committas.",
+  "env": {
+    "EXAMPLE_API_KEY": "lägg-din-nyckel-här-men-committa-aldrig-den-här-filen"
+  }
+}

@@ -1,0 +1,42 @@
+# Miljövariabler och secrets — ALDRIG i repot
+.env
+.env.*
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Privata mappar
+secrets/
+private/
+data/
+client-data/
+exports/
+transcripts/
+emails/
+calendar/
+meeting-notes/
+
+# Claude Code — lokal config (innehåller personliga inställningar)
+.claude/settings.local.json
+
+# Loggar
+*.log
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Node
+node_modules/
+dist/
+tmp/
+.cache/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/

@@ -1,0 +1,13 @@
+{
+  "comment": "Kopiera den här filen till settings.json och anpassa dina inställningar.",
+  "project": "superintelligent-ai-os",
+  "model": "claude-opus-4-8",
+  "permissions": {
+    "allow": [
+      "Bash(git status)",
+      "Bash(git log*)",
+      "Bash(git diff*)",
+      "Bash(bash scripts/safety-check.sh)"
+    ]
+  }
+}
