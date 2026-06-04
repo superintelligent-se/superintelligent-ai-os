@@ -1,5 +1,10 @@
 # Superintelligent AI OS
 
+> **Ny här? Vet inte vad GitHub är eller vad det här är?**
+> Börja här istället: [START-HERE.md](START-HERE.md) — ingen teknisk kunskap krävs.
+
+---
+
 **Vi demokratiserar AI.**
 
 Superintelligent AI OS är ett publikt arbets-OS för AI-experter, konsulter och organisationer som vill arbeta strukturerat med AI-agenter — utan att behöva uppfinna hjulet varje gång.
