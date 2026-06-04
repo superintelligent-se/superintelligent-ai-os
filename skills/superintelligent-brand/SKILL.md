@@ -8,42 +8,67 @@ Läs denna skill när du:
 - Producerar text, presentationer, inlägg eller rapporter för Superintelligent
 - Kommunicerar med kunder eller prospects på Superintelligents vägnar
 - Skapar visuella briefs eller beskriver Superintelligents estetik
+- Väljer ordval, ton eller formuleringar i Superintelligents namn
 
 ## Kärnprincip
 
-> Vi demokratiserar AI.
+> **Vi demokratiserar AI.**
 
 Det är inte bara ett tagline. Det är ett löfte om att göra kraftfull AI-förmåga tillgänglig för fler — utan att göra det komplicerat, kallt eller exkluderande.
 
+**Varumärkesidé:** AI ska inte bara göra organisationer effektivare. AI ska göra människor mer kapabla.
+
 ## Ton
 
-- **Tydlig** — inga onödiga ord, inga krångliga meningar
-- **Modig** — ta ställning, säg vad du menar
-- **Mänsklig** — AI är ett verktyg för mänsklig förmåga, inte ett mål i sig
-- **Praktisk** — fokus på vad som faktiskt fungerar
-- **Premium** — vi är inte billigast, vi är bäst
+- **Modig** — vågar utmana hierarkier, gamla arbetssätt och AI-hype
+- **Klar** — gör AI begripligt, konkret och användbart
+- **Mänsklig** — utgår från människors förmåga, drivkrafter och ansvar
+- **Premium** — strategisk, välformulerad, kvalitetsdriven
+- **Praktisk** — fokuserar på träning, användning och verkliga arbetssituationer
 
-## Ordval
+Varumärket ska vara: tekniskt spetsigt men aldrig kallt, mänskligt men aldrig fluffigt, premium men aldrig distanserat, enkelt men aldrig förenklat, modigt men aldrig arrogant.
+
+## Träning, inte utbildning
+
+**Superintelligent pratar om träning — inte utbildning.**
 
 | Använd | Undvik |
 |---|---|
-| Träning | Utbildning (för AI-relaterade ämnen) |
-| Förmåga | Teknik, verktyg, lösning |
-| Samarbete | Automatisering |
-| Insikt | Data, output |
-| Expert | Guru, ninja, rockstar |
+| AI-träning | Utbildning |
+| Färdighetsträning | Kurs |
+| Förmågeutveckling | Föreläsning |
+| Praktisk AI-träning | Kompetensutbildning |
+| Träning för ledare/team | Lärplattform |
 
-## Vad du ska undvika
+> Vi utbildar inte människor i AI. Vi tränar människor att använda AI för att förstärka sin förmåga, sin yrkesroll och sitt beslutsfattande.
 
-- AI-hype och buzzwords: "revolutionerande", "banbrytande", "game-changing"
+## Ordval och formuleringar
+
+**Skriv så här:**
+- Vi demokratiserar AI.
+- AI ska göra människor mer kapabla.
+- Förändring byggs inifrån.
+- Det handlar inte om att veta mer. Det handlar om att kunna mer.
+- Träning är vägen från förståelse till förmåga.
+
+**Undvik:**
+- Vi erbjuder AI-utbildningar.
+- Banbrytande, revolutionerande, game-changing
+- Digital transformation, synergier, paradigmskifte
+- AI-drivna ekosystem
+
+## Vad du ska undvika (bild och ton)
+
+- AI-hype och buzzwords
 - Robotar, kretskort, hjärnor med sladdar, neonblå glöd
 - Cyberpunk-estetik
-- Generiska AI-symboler (kugghjul + hjärna etc.)
+- Generiska AI-symboler
 - Kall, distanserad tech-retorik
+- Passiv form
 
 ## Läs mer
 
-- [Brand Core](references/brand-core.md)
-- [Presentationsregler](references/presentation-rules.md)
-- [Bildpromptar](references/image-prompts.md)
-- [Kanalregler](references/channel-rules.md)
+- [Brand Core](references/brand-core.md) — kärnidentitet, positionering, målgrupper, färger, typografi
+- [Presentationsregler](references/presentation-rules.md) — slides, layout, grafik, Gamma/Canva-instruktioner
+- [Bildpromptar](references/image-prompts.md) — färdiga promptar för alla bildtyper
+- [Kanalregler](references/channel-rules.md) — LinkedIn, webb, e-post, offert, rubrikbank
