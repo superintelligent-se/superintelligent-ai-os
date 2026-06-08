@@ -18,14 +18,23 @@ Läs denna skill när användaren ber om:
 
 ## Exekvering steg för steg
 
-1. **Hämta mejl** — Läs inkorgen, senaste 24 timmar (eller tidsperiod användaren anger).
-2. **Triagera** — Klassificera varje mejl enligt [priority-model.md](references/priority-model.md).
-3. **Kategorisera** — Dela upp i [action-categories.md](references/action-categories.md).
-4. **Identifiera actions** — Beslut, svar, bokningar, uppföljningar, ekonomiska åtgärder.
-5. **Föreslå svar** — Följ [response-drafting.md](references/response-drafting.md). Skicka aldrig automatiskt.
-6. **Föreslå kalenderåtgärder** — Möten, deadlines, påminnelser. Skapa aldrig utan godkännande.
-7. **Producera rapport** — Följ outputformatet nedan.
-8. **Förbered notistext** — Följ [notification-format.md](references/notification-format.md) om något är kritiskt.
+1. **Hämta mejl från inkorgen** — Senaste 1 timme vid schemalagd körning, senaste 24 timmar vid manuell körning (eller tidsperiod användaren anger). Använd `folderName: "Inbox"`.
+
+2. **Hämta Skickat för kontext** — Läs alltid `folderName: "Sent Items"` för de senaste 48 timmarna parallellt med steg 1. Detta är obligatoriskt — utan Skickat-kontext kan triage inte avgöra om ett svar redan skickats.
+
+3. **Korsavstämning** — För varje mejl i inkorgen som verkar kräva svar: kontrollera om det finns ett skickat mejl till samma avsändare i samma tidsperiod. Om svar redan skickats: klassificera som "Väntar på andra" eller "Endast information" — skapa aldrig draft.
+
+4. **Triagera** — Klassificera varje mejl enligt [priority-model.md](references/priority-model.md).
+
+5. **Kategorisera** — Dela upp i [action-categories.md](references/action-categories.md).
+
+6. **Identifiera actions** — Beslut, svar, bokningar, uppföljningar, ekonomiska åtgärder.
+
+7. **Skapa drafts automatiskt (schemalagd körning)** — För mejl på Nivå 1 och Nivå 2 som inte redan har besvarats: skapa draft via `python scripts/outlook/create_draft.py`. Skapa aldrig draft om svar finns i Skickat. Skicka aldrig automatiskt.
+
+8. **Producera rapport** — Följ outputformatet nedan. Inkludera vilka drafts som skapades och deras ID.
+
+9. **Skicka Telegram-notis (schemalagd körning)** — Om drafts skapades: skicka notis via `python scripts/outlook/telegram_notify.py` för varje draft. Om inga nya mejl kräver handling: skicka ingen notis.
 
 ## Outputformat
 

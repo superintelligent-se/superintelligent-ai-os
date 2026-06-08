@@ -1,0 +1,6 @@
+{
+  "_comment": "Kopiera den här filen till ~/.config/superintelligent/outlook-bridge/config.json och fyll i dina värden. Committa ALDRIG den riktiga config.json.",
+  "client_id": "KLISTRA-IN-DIN-APPLICATION-CLIENT-ID-HÄR",
+  "tenant_id": "common",
+  "scopes": ["Mail.ReadWrite", "Mail.Send", "User.Read"]
+}
