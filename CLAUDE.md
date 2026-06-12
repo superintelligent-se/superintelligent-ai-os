@@ -24,6 +24,23 @@ Du arbetar i Superintelligent AI OS. Det här är en metodbank, inte ett datalag
 3. **Hjälp ovana användare steg för steg.** Förklara vad du gör och varför, utan jargong.
 4. **Kör alltid `scripts/safety-check.sh` innan commit** om du är osäker på vad som finns i repot.
 5. **Gör inte hela föräldermappar till git-repos.** Endast `superintelligent-ai-os/` är ett git-repo.
+6. **Testskript och temporära filer ska alltid läggas i `/tmp`**, aldrig i repot — temporära filer i repot orsakar konflikter med nightly sync.
+
+## Minnesinstruktion — när användaren ber dig komma ihåg något
+
+När användaren säger "kom ihåg", "notera" eller liknande: fråga alltid först:
+
+> "Är detta okänslig information som kan läggas i CLAUDE.md i repot (synkas till alla maskiner), eller är det känsligt och ska stanna lokalt i minnet på den här maskinen?"
+
+- **Okänsligt → CLAUDE.md i repot**: lägg till under relevant rubrik, committa och pusha. Synkas automatiskt till alla maskiner via nightly git-sync.
+- **Känsligt → lokalt minne**: spara med `memory`-verktyget. Stannar på denna maskin. Delas aldrig.
+
+Gör bedömningen snabbt — om du är osäker, fråga.
+
+## Kontext om användaren och miljön
+
+- Thomas Dalebring är global admin på alla Microsoft 365-miljöer (Azure AD, Graph, Exchange, Teams).
+- Repo körs på två maskiner: MacBook Pro (aktivt arbete) och Mac Mini (schemalagda tasks, alltid på).
 
 ## Brandprincip
 
