@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <!-- Unikt ID för LaunchAgent -->
+  <key>Label</key>
+  <string>com.superintelligent.aios.sync</string>
+
+  <!-- Kommando som körs — justera sökvägen om repot ligger någon annanstans -->
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>REPO_PATH/scripts/sync.sh</string>
+  </array>
+
+  <!-- Kör var 30:e minut (1800 sekunder). Ändra till 900 för var 15:e minut. -->
+  <key>StartInterval</key>
+  <integer>1800</integer>
+
+  <!-- Kör även om datorn just vaknat upp från sömn -->
+  <key>RunAtLoad</key>
+  <true/>
+
+  <!-- Loggar -->
+  <key>StandardOutPath</key>
+  <string>/tmp/superintelligent-sync.log</string>
+  <key>StandardErrorPath</key>
+  <string>/tmp/superintelligent-sync-error.log</string>
+
+  <!-- Starta om om den kraschar -->
+  <key>KeepAlive</key>
+  <false/>
+</dict>
+</plist>

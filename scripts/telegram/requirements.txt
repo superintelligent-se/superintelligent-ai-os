@@ -1,0 +1,10 @@
+# Telegram Assistant — Python-beroenden
+# Installeras i befintlig venv: ~/.config/superintelligent/outlook-bridge/venv
+#
+# Kör: pip install -r scripts/telegram/requirements.txt
+# (setup_credentials.sh gör detta automatiskt)
+
+anthropic>=0.40.0
+openai-whisper>=20231117
+keyring>=24.0.0
+requests>=2.31.0

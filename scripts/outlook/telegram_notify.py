@@ -23,14 +23,20 @@ Kräver:
 import argparse
 import json
 import sys
+from datetime import datetime, timedelta, timezone
 import keyring
 import requests
 from pathlib import Path
 
-KEYCHAIN_SERVICE = "superintelligent-telegram-bridge"
-KEYCHAIN_ACCOUNT = "bot-token"
-TELEGRAM_CONFIG = Path.home() / ".config/superintelligent/outlook-bridge/telegram.json"
-TELEGRAM_API = "https://api.telegram.org"
+KEYCHAIN_SERVICE  = "superintelligent-telegram-bridge"
+KEYCHAIN_ACCOUNT  = "bot-token"
+CONFIG_DIR        = Path.home() / ".config/superintelligent/outlook-bridge"
+TELEGRAM_CONFIG   = CONFIG_DIR / "telegram.json"
+HISTORY_FILE      = CONFIG_DIR / "conversation_history.json"
+PENDING_FILE      = CONFIG_DIR / "pending_action.json"
+TELEGRAM_API      = "https://api.telegram.org"
+MAX_HISTORY_MSGS  = 20
+PENDING_EXPIRY_HOURS = 24
 
 
 def load_credentials():
@@ -62,13 +68,61 @@ def send_message(token: str, chat_id: str, text: str) -> bool:
         return False
 
 
-def build_ok_command(draft_id: str, has_attachment: bool, recipient_count: int) -> str:
-    cmd = f"/ok{draft_id}"
-    if has_attachment:
-        cmd += "B"
-    if recipient_count > 3:
-        cmd += "FM"
-    return cmd
+def _append_to_history(role: str, content: str) -> None:
+    """
+    Lägg till ett meddelande i konversationshistoriken som assistant_bot.py delar.
+    Gör att Claude har kontext om notiser när Thomas svarar.
+    Non-blocking — kastar aldrig exception.
+    """
+    try:
+        CONFIG_DIR.mkdir(parents=True, exist_ok=True)
+        history = []
+        if HISTORY_FILE.exists():
+            try:
+                history = json.loads(HISTORY_FILE.read_text(encoding="utf-8"))
+            except Exception:
+                pass
+        history.append({"role": role, "content": content})
+        if len(history) > MAX_HISTORY_MSGS:
+            history = history[-MAX_HISTORY_MSGS:]
+        HISTORY_FILE.write_text(
+            json.dumps(history, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+    except Exception as exc:
+        print(f"VARNING: Kunde inte uppdatera historik: {exc}", file=sys.stderr)
+
+
+def _write_pending_action(
+    draft_id: str,
+    subject: str,
+    to_summary: str,
+    has_attachment: bool,
+    recipient_count: int,
+) -> None:
+    """
+    Skriv pending_action.json så att assistant_bot.py vet att ett draft väntar
+    på bekräftelse via naturligt språk. Non-blocking.
+    """
+    try:
+        CONFIG_DIR.mkdir(parents=True, exist_ok=True)
+        now = datetime.now(timezone.utc)
+        data = {
+            "type": "send_draft",
+            "draft_id": draft_id,
+            "subject": subject,
+            "to_summary": to_summary,
+            "has_attachment": has_attachment,
+            "recipient_count": recipient_count,
+            "created_at": now.isoformat(),
+            "expires_at": (now + timedelta(hours=PENDING_EXPIRY_HOURS)).isoformat(),
+        }
+        PENDING_FILE.write_text(
+            json.dumps(data, ensure_ascii=False, indent=2),
+            encoding="utf-8",
+        )
+    except Exception as exc:
+        print(f"VARNING: Kunde inte skriva pending_action: {exc}", file=sys.stderr)
 
 
 def notify_draft_ready(
@@ -80,7 +134,8 @@ def notify_draft_ready(
     silent: bool = False,
 ) -> bool:
     """
-    Skickar en draft-notis till Telegram.
+    Skickar en draft-notis till Telegram med naturligt bekräftelseflöde.
+    Skriver också till konversationshistorik och pending_action.json.
     Returnerar True om det lyckades, False annars.
     Kastar aldrig exception — är alltid non-blocking.
     """
@@ -88,8 +143,6 @@ def notify_draft_ready(
         token, chat_id = load_credentials()
     except SystemExit:
         return False
-
-    ok_cmd = build_ok_command(draft_id, has_attachment, recipient_count)
 
     flags = []
     if has_attachment:
@@ -100,21 +153,27 @@ def notify_draft_ready(
 
     text = (
         f"━━━━━━━━━━━━━━━━━━━━━\n"
-        f"📧 <b>Draft {draft_id}</b>\n"
+        f"📧 <b>Draft {draft_id} är redo</b>\n"
         f"━━━━━━━━━━━━━━━━━━━━━\n\n"
         f"<b>Till:</b> {to_summary}\n"
         f"<b>Ämne:</b> {subject}\n\n"
         f"{flag_line}\n\n"
-        f"Skicka:\n"
-        f"<code>{ok_cmd}</code>"
+        f"Ska jag skicka detta? Svara <b>ja</b> eller <b>nej</b>."
     )
 
     ok = send_message(token, chat_id, text)
+
+    if ok:
+        # Spara notisen i konversationshistoriken så Claude har kontext
+        _append_to_history("assistant", text)
+        # Registrera att ett draft väntar på bekräftelse
+        _write_pending_action(draft_id, subject, to_summary, has_attachment, recipient_count)
+
     if not silent:
         if ok:
             print(f"📱 Telegram-notis skickad (Draft {draft_id})")
         else:
-            print("VARNING: Telegram-notis misslyckades — fortsätt godkänna i Cowork.", file=sys.stderr)
+            print("VARNING: Telegram-notis misslyckades — godkänn via /list i Telegram.", file=sys.stderr)
     return ok
 
 

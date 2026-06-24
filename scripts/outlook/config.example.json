@@ -1,6 +1,32 @@
 {
-  "_comment": "Kopiera den här filen till ~/.config/superintelligent/outlook-bridge/config.json och fyll i dina värden. Committa ALDRIG den riktiga config.json.",
+  "_comment": "Kopiera till ~/.config/superintelligent/outlook-bridge/config.json. Committa ALDRIG den riktiga filen.",
   "client_id": "KLISTRA-IN-DIN-APPLICATION-CLIENT-ID-HÄR",
   "tenant_id": "common",
-  "scopes": ["Mail.ReadWrite", "Mail.Send", "User.Read"]
+  "scopes": [
+    "Mail.ReadWrite",
+    "Mail.Send",
+    "MailboxSettings.ReadWrite",
+    "Calendars.ReadWrite",
+    "OnlineMeetings.ReadWrite",
+    "OnlineMeetingTranscript.Read.All",
+    "OnlineMeetingArtifact.Read.All",
+    "Chat.ReadWrite.All",
+    "ChannelMessage.Read.All",
+    "ChannelMessage.Send",
+    "Team.ReadBasic.All",
+    "TeamMember.Read.All",
+    "Presence.Read.All",
+    "Tasks.ReadWrite",
+    "Group.ReadWrite.All",
+    "Files.ReadWrite.All",
+    "Sites.ReadWrite.All",
+    "Notes.ReadWrite.All",
+    "Directory.Read.All",
+    "User.Read",
+    "User.Read.All",
+    "Contacts.ReadWrite",
+    "People.Read",
+    "People.Read.All",
+    "Analytics.Read"
+  ]
 }
