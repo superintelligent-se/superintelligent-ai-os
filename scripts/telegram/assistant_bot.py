@@ -92,22 +92,46 @@ Beteende:
 
 # ── Credentials ───────────────────────────────────────────────────────────────
 
+def _load_from_secret_file() -> dict:
+    """Fallback: läs bot-token och chat_id från .secret/credentials.json i repot."""
+    secret = REPO_ROOT / ".secret" / "credentials.json"
+    if secret.exists():
+        try:
+            return json.loads(secret.read_text()).get("telegram", {})
+        except Exception:
+            pass
+    return {}
+
+
 def load_credentials() -> tuple:
     token = keyring.get_password(KEYCHAIN_SERVICE, "bot-token")
-    if not token:
-        sys.exit("FEL: bot-token saknas i Keychain. Kör setup_credentials.sh")
-
     anthropic_key = keyring.get_password(KEYCHAIN_SERVICE, "anthropic-api-key")
+
+    # Fallback till .secret/credentials.json om Keychain inte är tillgänglig
+    # (händer när LaunchAgent startar innan login-nyckelringen är upplåst)
+    if not token or not anthropic_key:
+        tg = _load_from_secret_file()
+        if not token:
+            token = tg.get("bot_token")
+        if not anthropic_key:
+            anthropic_key = keyring.get_password(KEYCHAIN_SERVICE, "anthropic-api-key") or \
+                            _load_from_secret_file().get("anthropic_api_key")
+
+    if not token:
+        sys.exit("FEL: bot-token saknas i Keychain och .secret/credentials.json")
     if not anthropic_key:
-        sys.exit("FEL: anthropic-api-key saknas i Keychain. Kör setup_credentials.sh")
+        sys.exit("FEL: anthropic-api-key saknas i Keychain och .secret/credentials.json")
 
-    if not TELEGRAM_CONFIG.exists():
-        sys.exit(f"FEL: {TELEGRAM_CONFIG} saknas. Kör setup_credentials.sh")
-
-    config = json.loads(TELEGRAM_CONFIG.read_text())
-    chat_id = str(config.get("chat_id", ""))
+    # chat_id: försök Keychain → telegram.json → .secret/credentials.json
+    chat_id = keyring.get_password(KEYCHAIN_SERVICE, "chat_id")
+    if not chat_id and TELEGRAM_CONFIG.exists():
+        cfg = json.loads(TELEGRAM_CONFIG.read_text())
+        chat_id = str(cfg.get("chat_id", ""))
     if not chat_id:
-        sys.exit("FEL: chat_id saknas i telegram.json")
+        tg = _load_from_secret_file()
+        chat_id = str(tg.get("chat_id", ""))
+    if not chat_id:
+        sys.exit("FEL: chat_id saknas i Keychain, telegram.json och .secret/credentials.json")
 
     return token, chat_id, anthropic_key
 
