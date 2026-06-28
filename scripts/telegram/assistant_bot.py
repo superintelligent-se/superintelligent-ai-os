@@ -99,24 +99,25 @@ Mejlregler — VIKTIGT:
 
 # ── Credentials ───────────────────────────────────────────────────────────────
 
-def _load_from_secret_file() -> dict:
-    """Fallback: läs bot-token och chat_id från .secret/credentials.json i repot."""
+def _load_from_secret_file() -> tuple[dict, dict]:
+    """Läs .secret/credentials.json. Returnerar (full_dict, telegram_sub_dict)."""
     secret = REPO_ROOT / ".secret" / "credentials.json"
     if secret.exists():
         try:
-            return json.loads(secret.read_text()).get("telegram", {})
+            full = json.loads(secret.read_text())
+            return full, full.get("telegram", {})
         except Exception:
             pass
-    return {}
+    return {}, {}
 
 
 def load_credentials() -> tuple:
     # Läs från .secret/credentials.json först — fungerar alltid, även när
     # Keychain är låst (t.ex. när LaunchAgent startar vid boot).
-    tg = _load_from_secret_file()
-    token       = tg.get("bot_token") or keyring.get_password(KEYCHAIN_SERVICE, "bot-token")
-    anthropic_key = tg.get("anthropic_api_key") or keyring.get_password(KEYCHAIN_SERVICE, "anthropic-api-key")
-    chat_id     = str(tg.get("chat_id", "")) or keyring.get_password(KEYCHAIN_SERVICE, "chat_id") or ""
+    full, tg = _load_from_secret_file()
+    token         = tg.get("bot_token") or keyring.get_password(KEYCHAIN_SERVICE, "bot-token")
+    anthropic_key = full.get("anthropic_api_key") or keyring.get_password(KEYCHAIN_SERVICE, "anthropic-api-key")
+    chat_id       = str(tg.get("chat_id", "")) or keyring.get_password(KEYCHAIN_SERVICE, "chat_id") or ""
 
     # Fallback för chat_id: telegram.json
     if not chat_id and TELEGRAM_CONFIG.exists():
