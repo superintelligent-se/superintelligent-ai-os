@@ -56,11 +56,13 @@ KEYCHAIN_SERVICE    = "superintelligent-telegram-bridge"
 CONFIG_DIR          = _Path.home() / ".config/superintelligent/outlook-bridge"
 TELEGRAM_CONFIG     = CONFIG_DIR / "telegram.json"
 HISTORY_FILE        = CONFIG_DIR / "conversation_history.json"
-PENDING_FILE        = CONFIG_DIR / "pending_action.json"
 TELEGRAM_API        = "https://api.telegram.org"
 ANTHROPIC_API       = "https://api.anthropic.com/v1/messages"
 REPO_ROOT           = _Path(__file__).parent.parent.parent
 OUTLOOK_SCRIPTS     = REPO_ROOT / "scripts" / "outlook"
+# pending_action.json lives in .secret/ so both the sandbox (scheduled task)
+# and this bot (Mac mini) can read/write the same file via the shared repo.
+PENDING_FILE        = REPO_ROOT / ".secret" / "pending_action.json"
 
 MAX_HISTORY_MSGS    = 20
 MAX_TELEGRAM_LEN    = 4000
@@ -375,24 +377,29 @@ def run_outlook_script(script_name: str, args: list = None) -> tuple:
 
 def execute_send_draft(token: str, chat_id: str, pending: dict) -> list:
     """
-    Skicka ett draft baserat på pending_action. Returnerar historikposter att lägga till.
+    Skapar och skickar mejlet baserat på pending_action.
+    Använder create_and_send.py som har full nätverksåtkomst på Mac mini.
+    Returnerar historikposter att lägga till.
     """
-    draft_id = pending["draft_id"]
-    attachment = pending.get("has_attachment", False)
-    many_recipients = pending.get("recipient_count", 1) > 3
+    to_address = pending.get("to_address") or pending.get("to_summary", "")
+    subject    = pending.get("subject", "")
+    draft_body = pending.get("draft_body", "")
+    draft_id   = pending.get("draft_id", "?")
 
-    parts = ["OK", draft_id]
-    if attachment:
-        parts.append("B")
-    if many_recipients:
-        parts.append("FM")
-    ok_command = " ".join(parts)
+    if not to_address or not subject or not draft_body:
+        reply = "❌ Ofullständig draft-info — kan inte skicka. Kontrollera pending_action.json."
+        send(token, chat_id, reply)
+        return [{"role": "assistant", "content": reply}]
 
-    send(token, chat_id, f"⏳ Skickar…")
-    success, output = run_outlook_script("send_draft.py", [ok_command])
+    send(token, chat_id, "⏳ Skickar…")
+    success, output = run_outlook_script("create_and_send.py", [
+        "--to",      to_address,
+        "--subject", subject,
+        "--body",    draft_body,
+    ])
 
     if success:
-        reply = f"✅ Skickat."
+        reply = f"✅ Mejlet skickat till {to_address}."
     else:
         reply = f"❌ Kunde inte skicka.\n<pre>{output}</pre>"
 
@@ -425,15 +432,15 @@ def handle_message(
     if lower in ("/help", "/start"):
         send(token, chat_id,
             "━━━━━━━━━━━━━━━━━━━━━\n"
-            "🤖 <b>Thomas AI-assistent</b>\n"
+            "🤖 <b>Mini — Thomas assistent</b>\n"
             "━━━━━━━━━━━━━━━━━━━━━\n\n"
             "Skriv vad som helst — jag svarar via Claude.\n"
             "Skicka 🎙 röstmeddelanden för att prata.\n\n"
-            "Mejl-drafts bekräftas med naturligt språk:\n"
-            "  <i>ja / skicka / looks good</i> → skickar\n"
-            "  <i>nej / avbryt</i>             → avbryter\n\n"
+            "<b>Mejl-bekräftelse:</b>\n"
+            "När inkorgen triageras får du ett meddelande med ett färdigt svar.\n"
+            "  <i>ja / skicka / looks good</i> → skickar mejlet\n"
+            "  <i>nej / avbryt / skip</i>       → avbryter\n\n"
             "<b>Kommandon:</b>\n"
-            "<code>/list</code>   Lista aktiva drafts\n"
             "<code>/new</code>    Återställ konversation\n"
             "<code>/help</code>   Denna hjälp"
         )

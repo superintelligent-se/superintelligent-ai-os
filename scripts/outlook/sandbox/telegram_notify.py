@@ -45,8 +45,8 @@ MAX_MSG_CHARS = 4000  # Telegram-gräns är 4096, lite marginal
 SCRIPT_DIR   = Path(__file__).parent
 REPO_ROOT    = SCRIPT_DIR.parent.parent.parent  # sandbox/ -> outlook/ -> scripts/ -> repo root
 CREDS_FILE   = REPO_ROOT / ".secret" / "credentials.json"
-CONFIG_DIR   = Path.home() / ".config" / "superintelligent" / "outlook-bridge"
-PENDING_FILE = CONFIG_DIR / "pending_action.json"
+STATE_FILE   = REPO_ROOT / ".secret" / "draft_state.json"
+PENDING_FILE = REPO_ROOT / ".secret" / "pending_action.json"
 PENDING_EXPIRY_HOURS = 24
 
 
@@ -93,25 +93,46 @@ def priority_emoji(priority: str) -> str:
     return "🔵"
 
 
+def next_draft_id() -> str:
+    """Hämta nästa draft-ID (D1, D2, …) från den lokala räknaren."""
+    try:
+        if STATE_FILE.exists():
+            state = json.loads(STATE_FILE.read_text())
+        else:
+            state = {"next_counter": 1}
+        n = state["next_counter"]
+        state["next_counter"] = n + 1
+        STATE_FILE.parent.mkdir(parents=True, exist_ok=True)
+        STATE_FILE.write_text(json.dumps(state, indent=2))
+        return f"D{n}"
+    except Exception as exc:
+        print(f"VARNING: Kunde inte läsa draft_state: {exc}", file=sys.stderr)
+        return "D?"
+
+
 def write_pending_action(
     draft_id: str,
     subject: str,
-    to_summary: str,
+    to_address: str,
+    draft_body: str,
     has_attachment: bool,
     recipient_count: int,
 ) -> None:
     """
-    Skriv pending_action.json så att assistant_bot.py vet att ett draft väntar
-    på bekräftelse via naturligt språk. Non-blocking — kastar aldrig exception.
+    Skriv pending_action.json till .secret/ i repot så att assistant_bot.py
+    på Mac mini kan läsa det och skicka mejlet när Thomas bekräftar.
+    Non-blocking — kastar aldrig exception.
     """
     try:
-        CONFIG_DIR.mkdir(parents=True, exist_ok=True)
+        PENDING_FILE.parent.mkdir(parents=True, exist_ok=True)
         now = datetime.now(timezone.utc)
         data = {
             "type": "send_draft",
             "draft_id": draft_id,
             "subject": subject,
-            "to_summary": to_summary,
+            "to_address": to_address,
+            "to_summary": to_address,
+            "draft_body": draft_body,
             "has_attachment": has_attachment,
             "recipient_count": recipient_count,
             "created_at": now.isoformat(),
@@ -191,7 +212,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(
         description="Skicka draft-notis till Telegram (sandbox, kräver .secret/credentials.json)."
     )
-    parser.add_argument("--id",               required=True,  help="Draft-ID, t.ex. D4")
+    parser.add_argument("--id",               required=False, default=None, help="Draft-ID (auto-genereras om utelämnat)")
     parser.add_argument("--priority",         required=True,  help="T.ex. 'NIVÅ 1 — AKUT'")
     parser.add_argument("--original-from",    required=True,  help="Avsändarens e-post")
     parser.add_argument("--original-subject", required=True,  help="Originalämnesrad")
@@ -207,7 +228,7 @@ def main() -> None:
     token   = tg["bot_token"]
     chat_id = str(tg["chat_id"])
 
-    draft_id = args.id.upper()
+    draft_id = args.id.upper() if args.id else next_draft_id()
 
     text = build_message(
         draft_id         = draft_id,
@@ -227,7 +248,8 @@ def main() -> None:
         write_pending_action(
             draft_id=draft_id,
             subject=args.draft_subject,
-            to_summary=args.original_from,
+            to_address=args.original_from,
+            draft_body=args.draft_body,
             has_attachment=args.has_attachment,
             recipient_count=args.recipient_count,
         )

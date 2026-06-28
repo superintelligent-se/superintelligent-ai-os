@@ -17,6 +17,21 @@ Du arbetar i Superintelligent AI OS. Det här är en metodbank, inte ett datalag
 | `/templates` | Outputformat. Använd dem när du ska producera dokument, poster eller rapporter. |
 | `/connectors` | Setup-instruktioner för externa verktyg. Läs dem när användaren vill koppla ett nytt verktyg. |
 
+## Commit-meddelanden — automatisk WHATS-NEW
+
+När du skapar eller uppdaterar filer i `/skills`, `/workflows`, `/templates` eller `/connectors`: skriv ett beskrivande commit-meddelande till filen `.pending-commit-msg` i repo-roten. Gör detta direkt efter att du är klar med ändringarna, utan att användaren behöver be om det.
+
+Format: en rad, börja med `feat:`
+
+Exempel:
+- `feat: Ny skill för inbox-triage — sorterar och prioriterar e-post automatiskt`
+- `feat: Uppdaterat brand voice med nya LinkedIn-riktlinjer`
+- `feat: Workflow för mötesförberedelse stöder nu Teams-möten`
+
+Skriv så att en icke-teknisk kollega förstår vad som är nytt. Meddelandet plockas upp automatiskt av sync-skriptet och hamnar i WHATS-NEW.md på alla anslutna datorer.
+
+Om du gör flera orelaterade ändringar i samma session: kombinera dem till ett meddelande, eller välj den viktigaste.
+
 ## Regler du alltid ska följa
 
 1. **Skapa aldrig privata data i detta repo.** Inga mejl, kunddata, transkriberingar, kalenderdata, tokens eller API-nycklar.

@@ -23,9 +23,25 @@ if ! git -C "$REPO_DIR" ls-remote --exit-code origin &>/dev/null; then
   exit 0
 fi
 
-# Hämta senaste från GitHub
-if git -C "$REPO_DIR" pull --ff-only origin main >> "$LOG_FILE" 2>&1; then
-  log "Klart."
-else
-  log "Kunde inte hämta uppdateringar. Kontakta Superintelligent om problemet kvarstår."
+# Spara hash på WHATS-NEW.md innan pull — för att detektera nyheter
+WHATS_NEW="$REPO_DIR/WHATS-NEW.md"
+BEFORE_HASH=""
+if [ -f "$WHATS_NEW" ]; then
+  BEFORE_HASH=$(md5 -q "$WHATS_NEW" 2>/dev/null || md5sum "$WHATS_NEW" 2>/dev/null | cut -d' ' -f1 || true)
 fi
+
+# Hämta senaste från GitHub
+if ! git -C "$REPO_DIR" pull --ff-only origin main >> "$LOG_FILE" 2>&1; then
+  log "Kunde inte hämta uppdateringar. Kontakta Superintelligent om problemet kvarstår."
+  exit 0
+fi
+
+# Kontrollera om WHATS-NEW.md ändrades
+if [ -f "$WHATS_NEW" ]; then
+  AFTER_HASH=$(md5 -q "$WHATS_NEW" 2>/dev/null || md5sum "$WHATS_NEW" 2>/dev/null | cut -d' ' -f1 || true)
+  if [ "$BEFORE_HASH" != "$AFTER_HASH" ]; then
+    log "*** NYHETER TILLGÄNGLIGA — fråga Claude: 'vad är nytt?' ***"
+  fi
+fi
+
+log "Klart."

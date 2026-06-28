@@ -24,6 +24,9 @@ meeting-notes/
 # Claude Code — lokal config (innehåller personliga inställningar)
 .claude/settings.local.json
 
+# Automatiskt commit-meddelande skrivet av Claude under sessioner — lokalt, synkas ej
+.pending-commit-msg
+
 # Loggar
 *.log
 
