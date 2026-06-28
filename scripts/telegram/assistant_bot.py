@@ -81,13 +81,14 @@ Du har direkt tillgång till Thomas Microsoft 365-miljö via verktyg. Använd de
 - get_emails — läsa inkorgen
 - get_tasks — hämta uppgifter från To Do
 - search_people — slå upp en person i katalogen
+- send_email — skicka ett mejl direkt (till, ämne, brödtext)
 
 Beteende:
 - Svara alltid på svenska om Thomas inte skriver på annat språk
 - Var direkt och konkret — inga onödiga omskrivningar
 - Hämta alltid relevant data med verktygen istället för att säga att du inte kan se det
 - Du har konversationshistoriken för kontext — inklusive notiser från schemalagda jobb
-- Mejl-drafts bekräftas med naturligt språk (ja/nej) — påminn Thomas om detta vid behov
+- När Thomas ber dig skicka ett mejl: använd send_email direkt — fråga inte om lov i onödan
 - Tonen: professionell, mänsklig, varm — du är Mini, inte en generisk bot"""
 
 # ── Credentials ───────────────────────────────────────────────────────────────
@@ -104,34 +105,27 @@ def _load_from_secret_file() -> dict:
 
 
 def load_credentials() -> tuple:
-    token = keyring.get_password(KEYCHAIN_SERVICE, "bot-token")
-    anthropic_key = keyring.get_password(KEYCHAIN_SERVICE, "anthropic-api-key")
+    # Läs från .secret/credentials.json först — fungerar alltid, även när
+    # Keychain är låst (t.ex. när LaunchAgent startar vid boot).
+    tg = _load_from_secret_file()
+    token       = tg.get("bot_token") or keyring.get_password(KEYCHAIN_SERVICE, "bot-token")
+    anthropic_key = tg.get("anthropic_api_key") or keyring.get_password(KEYCHAIN_SERVICE, "anthropic-api-key")
+    chat_id     = str(tg.get("chat_id", "")) or keyring.get_password(KEYCHAIN_SERVICE, "chat_id") or ""
 
-    # Fallback till .secret/credentials.json om Keychain inte är tillgänglig
-    # (händer när LaunchAgent startar innan login-nyckelringen är upplåst)
-    if not token or not anthropic_key:
-        tg = _load_from_secret_file()
-        if not token:
-            token = tg.get("bot_token")
-        if not anthropic_key:
-            anthropic_key = keyring.get_password(KEYCHAIN_SERVICE, "anthropic-api-key") or \
-                            _load_from_secret_file().get("anthropic_api_key")
+    # Fallback för chat_id: telegram.json
+    if not chat_id and TELEGRAM_CONFIG.exists():
+        try:
+            cfg = json.loads(TELEGRAM_CONFIG.read_text())
+            chat_id = str(cfg.get("chat_id", ""))
+        except Exception:
+            pass
 
     if not token:
-        sys.exit("FEL: bot-token saknas i Keychain och .secret/credentials.json")
+        sys.exit("FEL: bot-token saknas i .secret/credentials.json och Keychain")
     if not anthropic_key:
-        sys.exit("FEL: anthropic-api-key saknas i Keychain och .secret/credentials.json")
-
-    # chat_id: försök Keychain → telegram.json → .secret/credentials.json
-    chat_id = keyring.get_password(KEYCHAIN_SERVICE, "chat_id")
-    if not chat_id and TELEGRAM_CONFIG.exists():
-        cfg = json.loads(TELEGRAM_CONFIG.read_text())
-        chat_id = str(cfg.get("chat_id", ""))
+        sys.exit("FEL: anthropic-api-key saknas i .secret/credentials.json och Keychain")
     if not chat_id:
-        tg = _load_from_secret_file()
-        chat_id = str(tg.get("chat_id", ""))
-    if not chat_id:
-        sys.exit("FEL: chat_id saknas i Keychain, telegram.json och .secret/credentials.json")
+        sys.exit("FEL: chat_id saknas i .secret/credentials.json, telegram.json och Keychain")
 
     return token, chat_id, anthropic_key
 

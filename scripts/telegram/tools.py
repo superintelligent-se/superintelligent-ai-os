@@ -154,6 +154,37 @@ TOOL_DEFINITIONS = [
             "required": ["name"],
         },
     },
+    {
+        "name": "send_email",
+        "description": (
+            "Skickar ett mejl från Thomas Microsoft 365-konto. "
+            "Använd när Thomas ber dig skicka ett mejl, svara på något, "
+            "eller formulera och skicka ett meddelande till någon. "
+            "Skickar direkt — använd bara när Thomas tydligt bett om det."
+        ),
+        "input_schema": {
+            "type": "object",
+            "properties": {
+                "to": {
+                    "type": "string",
+                    "description": "Mottagarens e-postadress.",
+                },
+                "subject": {
+                    "type": "string",
+                    "description": "Ämnesrad.",
+                },
+                "body": {
+                    "type": "string",
+                    "description": "Brödtext — hälsning, innehåll och avslutning.",
+                },
+                "cc": {
+                    "type": "string",
+                    "description": "CC-adresser, kommaseparerade. Utelämna om ej relevant.",
+                },
+            },
+            "required": ["to", "subject", "body"],
+        },
+    },
 ]
 
 
@@ -172,6 +203,8 @@ def execute_tool(name: str, tool_input: dict) -> str:
             return _get_tasks(**tool_input)
         elif name == "search_people":
             return _search_people(**tool_input)
+        elif name == "send_email":
+            return _send_email(**tool_input)
         else:
             return f"Okänt verktyg: {name}"
     except Exception as exc:
@@ -342,6 +375,33 @@ def _get_tasks(include_completed: bool = False) -> str:
         return "Inga öppna uppgifter i Microsoft To Do."
 
     return f"Uppgifter ({len(all_tasks)} st):\n\n" + "\n".join(all_tasks)
+
+
+def _send_email(to: str, subject: str, body: str, cc: str = "") -> str:
+    """Skickar ett mejl via Graph API POST /me/sendMail."""
+    try:
+        g = _graph()
+        to_recipients = [
+            {"emailAddress": {"address": a.strip()}}
+            for a in to.split(",") if a.strip()
+        ]
+        payload: dict = {
+            "message": {
+                "subject": subject,
+                "body": {"contentType": "Text", "content": body},
+                "toRecipients": to_recipients,
+            },
+            "saveToSentItems": True,
+        }
+        if cc:
+            payload["message"]["ccRecipients"] = [
+                {"emailAddress": {"address": a.strip()}}
+                for a in cc.split(",") if a.strip()
+            ]
+        g.post("/me/sendMail", payload)
+        return f"✓ Mejl skickat till {to}."
+    except Exception as exc:
+        return f"FEL: Kunde inte skicka mejl: {exc}"
 
 
 def _search_people(name: str) -> str:
