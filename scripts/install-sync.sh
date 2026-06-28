@@ -27,7 +27,8 @@ echo ""
 
 # --- STEG 1: SSH-kontroll ---
 echo "Steg 1: Kontrollerar SSH-autentisering mot GitHub..."
-if ssh -T git@github.com 2>&1 | grep -q "successfully authenticated"; then
+SSH_RESULT=$(ssh -T git@github.com 2>&1 || true)
+if echo "$SSH_RESULT" | grep -q "successfully authenticated"; then
   echo "  [OK] SSH fungerar mot GitHub."
 else
   echo ""

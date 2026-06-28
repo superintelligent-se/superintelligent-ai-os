@@ -6,6 +6,9 @@
 *.p12
 *.pfx
 
+# Personliga skills — stannar lokalt, synkas aldrig till GitHub
+skills/personal/
+
 # Privata mappar
 .secret/
 secrets/
