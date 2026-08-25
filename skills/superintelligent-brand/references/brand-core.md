@@ -121,31 +121,34 @@ För privatpersoner kommunicerar vi om: personlig AI-träning, färdighetsträni
 
 ## Färgpalett
 
+Systemet bygger på tre färger. Vit yta, svart text, lila accent.
+
 ### Primär palett
 | Namn | HEX | Roll |
 |---|---|---|
-| Super Purple | #6F00FF | Primär identitetsfärg, energi, AI, riktning, CTA |
-| Intelligent Gold | #D6BA55 | Premiumaccent, precision, värde |
-| Deep Ink | #08080C | Huvudtext och mörk bas |
-| Soft White | #F7F5F2 | Varm ljus bakgrund |
-| Pure White | #FFFFFF | Ren kontrast och digital yta |
+| Pure White | #FFFFFF | Enda bakgrundsfärgen i allt innehåll |
+| Black | #000000 | All brödtext och standardrubriker |
+| Super Purple | #6F00FF | Enda accentfärgen — identitet, energi, AI, riktning, CTA |
 
-### Sekundär palett
+### Stödfärger
+Stödfärgerna är funktionella neutraler, inte accenter.
+
 | Namn | HEX | Roll |
 |---|---|---|
-| Dark Intelligence | #1A0038 | Mörk premiumbakgrund |
-| Purple Black | #12001F | Djup mörk/lila scenkänsla |
-| Soft Lavender | #EFE5FF | Ljus informationsyta |
-| Pale Gold | #F3E7B3 | Mjuk varm accentbakgrund |
-| Warm Grey | #E8E4DE | Linjer, ramar och sekundära ytor |
-| Graphite | #2B2B33 | Sekundär text |
+| Graphite | #2B2B33 | Sekundär text, metadata, bildtext, fotnoter |
+| Warm Grey | #E8E4DE | Linjer, tabellramar, avdelare |
 
 ### Färgregler
-- Lila är identitet, energi och AI.
-- Guld är precision, premium och värde — används sparsamt.
-- Undvik blått som varumärkesfärg.
-- Undvik neonestetik som gör uttrycket kallt eller generiskt.
-- Rekommenderad balans: 50% ljusa neutrala ytor, 20% mörka premiumytor, 15% svart/grafit text, 10% lila accent, 5% guldaccent.
+
+- Bakgrunden är alltid ren vit #FFFFFF. Ingen off-white, inga tonplattor, inga gradienter som bakgrund.
+- All text är svart #000000. Sekundär text får vara Graphite #2B2B33.
+- Lila är enda accentfärgen. Den används på linjer, ikoner, CTA, siffror, nyckelord och rubriker.
+- Rubriker är svarta som standard. Lila rubrik är tillåten där kontrasten räcker.
+- Lila får aldrig användas för brödtext. Kontrastkvoten #6F00FF mot vitt är 6,7:1 — godkänt enligt WCAG AA för all text och AAA för stor text, men inte AAA för brödtext.
+- Enda undantaget från vit bakgrund: helfylld lila yta #6F00FF med vit text, reserverad för hero, keynote-statement och avslutande CTA.
+- Inget guld. Guld har utgått ur varumärket.
+- Undvik blått som varumärkesfärg. Undvik neon, mörka premiumbakgrunder och tonade lila ytor.
+- Rekommenderad balans: cirka 85% vit yta, 10% svart text, 5% lila accent.
 
 ## Typografi
 
@@ -161,8 +164,10 @@ För privatpersoner kommunicerar vi om: personlig AI-träning, färdighetsträni
 
 ## Slutlig designriktning
 
-**Warm Intelligent Premium**
+**Clear Intelligent Premium**
 
-Superintelligent ska visuellt och språkligt kännas som: modig AI-transformation, mänsklig förmågeutveckling, premiumstrategi, praktisk träning, varm intelligens, tydlig struktur, ansvarstaganade AI-ledarskap.
+Superintelligent ska visuellt och språkligt kännas som: modig AI-transformation, mänsklig förmågeutveckling, premiumstrategi, praktisk träning, klarhet, tydlig struktur, ansvarstagande AI-ledarskap.
+
+Visuellt betyder Clear Intelligent Premium: ren vit yta, svart text, en enda lila accent och mycket luft. Värmen kommer från bildspråket och tonen, inte från färgpaletten.
 
 Det ska inte kännas som ett traditionellt utbildningsbolag. Det ska inte heller kännas som ett kallt AI-konsultbolag. Det ska kännas som ett bolag som förstår att AI förändrar människans roll — och hjälper människor att växa in i den rollen med skärpa, ansvar och mod.

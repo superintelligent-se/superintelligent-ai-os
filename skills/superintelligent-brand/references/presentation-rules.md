@@ -2,10 +2,10 @@
 
 ## Designriktning
 
-**Warm Intelligent Premium — luftigt, tydligt, varmt, premium och mänskligt.**
+**Clear Intelligent Premium — vitt, luftigt, tydligt, premium och mänskligt.**
 
 Grundinstruktion till Gamma, Canva eller liknande verktyg:
-> Skapa en presentation för Superintelligent enligt varumärkesriktningen Warm Intelligent Premium. Varumärket ska kännas modigt, mänskligt, premium och praktiskt. Tagline: "Vi demokratiserar AI." Svenska som primärt språk. Undvik ordet utbildning och använd i stället träning, AI-träning, färdighetsträning och förmågeutveckling.
+> Skapa en presentation för Superintelligent enligt varumärkesriktningen Clear Intelligent Premium. Bakgrunden ska vara ren vit (#FFFFFF) och all text svart (#000000). Lila #6F00FF är enda accentfärgen. Enda undantaget är hero-, statement- och CTA-slides som ska vara helfyllda i lila med vit text. Använd inget guld, inga mörka bakgrunder och inga tonade färgytor. Varumärket ska kännas modigt, mänskligt, premium och praktiskt. Tagline: "Vi demokratiserar AI." Svenska som primärt språk. Undvik ordet utbildning och använd i stället träning, AI-träning, färdighetsträning och förmågeutveckling.
 
 ---
 
@@ -17,16 +17,27 @@ Grundinstruktion till Gamma, Canva eller liknande verktyg:
 - Max 40–60 ord per slide
 - Undvik punktlistor med mer än 4 punkter
 
+## Färg i slides
+
+| Slidetyp | Bakgrund | Text | Används till |
+|---|---|---|---|
+| Vit slide | #FFFFFF | #000000 | Allt vanligt innehåll — förklaring, modeller, pedagogik, data |
+| Lila slide | #6F00FF (helfylld) | #FFFFFF | Endast hero, keynote-statement och avslutande CTA |
+
+Riktvärde: högst två till tre lila slides i ett deck på tio till tolv slides. Blir de fler tappar de sin verkan.
+
+Lila på vit bakgrund används till rubriker, linjer, ikoner, siffror, nyckelord och CTA-knappar. Aldrig till brödtext — kontrastkvoten 6,7:1 räcker för rubriker och stor text men inte för löpande text.
+
 ## Layoutprinciper
 
 | Princip | Rekommendation |
 |---|---|
-| Whitespace | Använd mycket luft |
-| Rubriker | Stora, tydliga, få ord |
+| Whitespace | Använd mycket luft — den vita ytan är en designbärare, inte tomrum |
+| Rubriker | Stora, tydliga, få ord. Svarta som standard, lila för eftertryck |
 | Bild/text | Ofta 50/50 eller 60/40 |
-| Accent | Lila för identitet, guld för värde och precision |
-| Mörka slides | Premium, keynote och starka statements |
-| Ljusa slides | Förklaring, modeller och pedagogik |
+| Accent | Lila är enda accentfärgen |
+| Lila slides | Premium, keynote och starka statements |
+| Vita slides | Förklaring, modeller och pedagogik |
 | Citat | Mänsklig närhet och trovärdighet |
 
 ## Typografi i slides
@@ -42,12 +53,16 @@ Grundinstruktion till Gamma, Canva eller liknande verktyg:
 
 Använd:
 - Rundade rektanglar (kort: 16–24 px, knappar: 12 px eller pill-form)
-- Tunna linjer (primär: 1,5–2 px i #6F00FF, premium: 1 px i #D6BA55, neutral: 1 px i #E8E4DE)
-- Citatboxar (20 px)
-- Färgade etiketter
-- Luftiga kort
-- Subtila gradienter
-- Guldmarkeringar för nyckelord
+- Tunna linjer (primär: 1,5–2 px i #6F00FF, neutral: 1 px i #E8E4DE)
+- Citatboxar (20 px) — vit yta med lila vänsterlinje, aldrig tonad bakgrund
+- Lila etiketter och siffror
+- Luftiga kort med tunn ram, inte fylld bakgrund
+- Lila markering av nyckelord i rubriker
+
+Undvik:
+- Guld och alla andra accentfärger
+- Gradienter, skuggor och tonade ytor
+- Mörka bakgrundsplattor
 
 ---
 
@@ -56,24 +71,27 @@ Använd:
 ### Hero-slide (öppning)
 **Rubrik:** Vi demokratiserar AI.
 **Undertext:** AI som stärker människors förmåga, yrkesroller och beslut.
-*Mörk bakgrund (#08080C eller #1A0038), vit rubrik, lila eller guld-accent.*
+*Helfylld lila bakgrund (#6F00FF), vit rubrik och vit undertext.*
 
 ### Thought leadership-slide
 **Rubrik:** När alla får AI blir alla beslutsfattare.
 **Undertext:** Därför behöver organisationer inte bara verktyg. De behöver träning, ansvar och AI-ledarskap.
+*Vit bakgrund, svart rubrik, lila nyckelord eller lila linje.*
 
 ### Träningsslide
 **Rubrik:** Träning före utbildning.
 **Undertext:** AI handlar inte om att veta mer. Det handlar om att kunna använda mer av den kunskap som redan finns.
+*Vit bakgrund, svart text.*
 
 ### AI-ledarskap-slide
 **Rubrik:** AI-ledarskap kräver nya sätt att följa upp.
 **Undertext:** Nya förmågor kräver nya ansvar, nya nyckeltal och nya sätt att förstå värde.
+*Vit bakgrund, svart text, lila accentelement.*
 
 ### CTA-slide (avslutning)
 **Rubrik:** Vill ni bygga AI-förmåga från insidan?
 **Undertext:** Starta med en strategisk AI-träning.
-*Tydlig knapp eller kontaktinfo.*
+*Helfylld lila bakgrund (#6F00FF), vit text. Tydlig knapp eller kontaktinfo.*
 
 ---
 
@@ -110,8 +128,10 @@ Analysera materialet och skapa en svensk presentation enligt Superintelligents v
 
 ## Canva Brand Kit (snabbref)
 
-**Primära färger:** #6F00FF, #D6BA55, #08080C, #F7F5F2, #FFFFFF
-**Sekundära färger:** #1A0038, #12001F, #EFE5FF, #F3E7B3, #E8E4DE, #2B2B33
+**Bakgrund:** #FFFFFF
+**Text:** #000000
+**Accent:** #6F00FF (enda accentfärgen)
+**Stödfärger:** #2B2B33 (sekundär text), #E8E4DE (linjer)
 **Rubriker:** Raleway ExtraBold
 **Brödtext:** Inter Regular
 **CTA:** Inter SemiBold

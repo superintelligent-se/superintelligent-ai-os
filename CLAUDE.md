@@ -63,8 +63,8 @@ Gör bedömningen snabbt — om du är osäker, fråga.
 - Använd "träning" före "utbildning".
 - Beskriv AI som mänsklig förmåga, inte bara teknik.
 - Undvik AI-hype, robotar, blå tech-estetik, cyberpunk, generiska AI-symboler.
-- Visuell riktning: Warm Intelligent Premium.
-- Färger: #6F00FF, #D6BA55, #08080C, #F7F5F2, #FFFFFF.
+- Visuell riktning: Clear Intelligent Premium.
+- Färger: #FFFFFF (bakgrund), #000000 (text), #6F00FF (enda accentfärg). Inget guld, inga mörka bakgrunder.
 
 ## Presentationer — använd alltid Gamma
 
@@ -74,16 +74,16 @@ När användaren ber om en presentation (oavsett ämne eller kontext) ska du all
 
 Använd följande brand settings när du genererar presentationen:
 
-**Designriktning:** Warm Intelligent Premium — luftigt, tydligt, varmt, premium och mänskligt.
+**Designriktning:** Clear Intelligent Premium — vitt, luftigt, tydligt, premium och mänskligt.
 
-**Primära färger:**
-- Super Purple: #6F00FF (primär identitetsfärg, CTA, accent)
-- Intelligent Gold: #D6BA55 (premiumaccent, precision — använd sparsamt)
-- Deep Ink: #08080C (mörk bas och text)
-- Soft White: #F7F5F2 (varm ljus bakgrund)
-- Pure White: #FFFFFF (ren digital yta)
+**Färger:**
+- Pure White: #FFFFFF (enda bakgrundsfärg)
+- Black: #000000 (all text och standardrubriker)
+- Super Purple: #6F00FF (enda accentfärg — linjer, ikoner, CTA, nyckelord, helfylld hero-slide)
+- Graphite: #2B2B33 (sekundär text och metadata)
+- Warm Grey: #E8E4DE (linjer och tabellramar)
 
-**Sekundära färger:** #1A0038, #12001F, #EFE5FF, #F3E7B3, #E8E4DE, #2B2B33
+Inget guld. Inga mörka bakgrunder. Inga tonade ytor.
 
 **Typografi:**
 - Rubriker (H1/Hero): Raleway ExtraBold / Black
@@ -100,8 +100,8 @@ Använd följande brand settings när du genererar presentationen:
 - Undvik mer än 4 punkter per lista
 - Mycket whitespace
 
-**Mörka slides** (#08080C eller #1A0038): för öppning, keynote-statements och starka budskap.
-**Ljusa slides** (#F7F5F2): för modeller, förklaring och pedagogik.
+**Lila slides** (helfyllt #6F00FF med vit text): endast för öppning, keynote-statements och avslutande CTA.
+**Vita slides** (#FFFFFF med svart text): allt övrigt innehåll — modeller, förklaring och pedagogik.
 
 **Språk:** Svenska om inget annat anges. Undvik "utbildning" — använd "träning", "AI-träning", "förmågeutveckling".
 
@@ -111,14 +111,16 @@ När användaren ber om en bild för sociala medier (LinkedIn, Instagram, Twitte
 
 ### Canva-instruktion (skicka alltid med denna brandinfo)
 
-**Designriktning:** Warm Intelligent Premium — luftigt, tydligt, varmt, premium och mänskligt.
+**Designriktning:** Clear Intelligent Premium — vitt, luftigt, tydligt, premium och mänskligt.
 
-**Primära färger:**
-- Super Purple: #6F00FF (primär identitetsfärg, CTA, accent)
-- Intelligent Gold: #D6BA55 (premiumaccent, precision — använd sparsamt)
-- Deep Ink: #08080C (mörk bas och text)
-- Soft White: #F7F5F2 (varm ljus bakgrund)
-- Pure White: #FFFFFF (ren digital yta)
+**Färger:**
+- Pure White: #FFFFFF (enda bakgrundsfärg)
+- Black: #000000 (all text och standardrubriker)
+- Super Purple: #6F00FF (enda accentfärg — linjer, ikoner, CTA, nyckelord, helfylld hero-slide)
+- Graphite: #2B2B33 (sekundär text och metadata)
+- Warm Grey: #E8E4DE (linjer och tabellramar)
+
+Inget guld. Inga mörka bakgrunder. Inga tonade ytor.
 
 **Typografi:**
 - Rubriker: Raleway ExtraBold / Black

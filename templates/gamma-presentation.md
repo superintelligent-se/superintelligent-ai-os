@@ -36,8 +36,9 @@ Används som brief för att generera en presentation i Gamma.
 
 - Ton: [tydlig / modig / mänsklig / praktisk / premium]
 - Undvik: AI-hype, robotar, cyberpunk-estetik
-- Visuell riktning: Warm Intelligent Premium
-- Färger: #6F00FF, #D6BA55, #08080C, #F7F5F2
+- Visuell riktning: Clear Intelligent Premium
+- Färger: #FFFFFF (bakgrund), #000000 (text), #6F00FF (enda accentfärg)
+- Hero-, statement- och CTA-slides: helfyllt #6F00FF med vit text
 
 ## Källmaterial
 

@@ -23,11 +23,11 @@ Används för att briefa en designer eller AI-verktyg om ett Canva-projekt.
 
 ## Visuell riktning
 
-- Stil: Warm Intelligent Premium
-- Primärfärg: #6F00FF (Superintelligent Violet)
-- Accentfärg: #D6BA55 (Warm Gold)
-- Bakgrund: #08080C (mörk) eller #F7F5F2 (ljus)
-- Typsnitt: [om specifikt]
+- Stil: Clear Intelligent Premium
+- Bakgrund: #FFFFFF (vit) — enda undantaget är helfylld lila yta för statement-design
+- Text: #000000
+- Accentfärg: #6F00FF (Super Purple) — enda accentfärgen, inget guld
+- Typsnitt: Raleway ExtraBold för rubrik, Inter Regular för brödtext
 
 ## Bildmaterial
 

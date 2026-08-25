@@ -63,8 +63,22 @@ Varumärket ska vara: tekniskt spetsigt men aldrig kallt, mänskligt men aldrig 
 - Robotar, kretskort, hjärnor med sladdar, neonblå glöd
 - Cyberpunk-estetik
 - Generiska AI-symboler
+- Guld och andra accentfärger vid sidan av lila
+- Mörka bakgrunder och tonade färgytor
 - Kall, distanserad tech-retorik
 - Passiv form
+
+## Färg
+
+Systemet bygger på tre färger:
+
+- **Vit #FFFFFF** — enda bakgrundsfärgen
+- **Svart #000000** — all text
+- **Super Purple #6F00FF** — enda accentfärgen
+
+Enda undantaget från vit bakgrund är en helfylld lila yta med vit text, reserverad för hero, keynote-statement och avslutande CTA. Inget guld. Inga mörka bakgrunder. Inga tonade ytor.
+
+Designriktningen heter **Clear Intelligent Premium**.
 
 ## Läs mer
 
