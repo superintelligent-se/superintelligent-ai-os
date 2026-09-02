@@ -6,8 +6,6 @@
 
 ### 2026-06-12
 - memory workflow + bi-directional sync tasks
-### 2026-06-04
-- add inbox-triage skill
 
 ---
 
