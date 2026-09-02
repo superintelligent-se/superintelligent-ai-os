@@ -9,7 +9,6 @@
 ### 2026-06-04
 - add inbox-triage skill
 - Add beginner onboarding for non-technical visitors
-- Add full brand guide content to skill references
 
 ---
 
