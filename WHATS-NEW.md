@@ -8,7 +8,6 @@
 - memory workflow + bi-directional sync tasks
 ### 2026-06-04
 - add inbox-triage skill
-- Add beginner onboarding for non-technical visitors
 
 ---
 
