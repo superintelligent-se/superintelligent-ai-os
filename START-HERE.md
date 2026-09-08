@@ -2,7 +2,7 @@
 
 Du har förmodligen hamnat här via en länk. Bra. Det du ser framför dig är ingen app, inget program och inget du behöver installera.
 
-Det är en **metodbank** — ett samling instruktioner, mallar och arbetsprocesser som du kan ge till din AI-assistent (till exempel Claude) så att den beter sig på ett strukturerat, konsekvent och professionellt sätt.
+Det är en **metodbank** — en samling instruktioner, mallar och arbetsprocesser som du kan ge till din AI-assistent (till exempel Claude, ChatGPT eller Codex) så att den arbetar strukturerat, konsekvent och professionellt.
 
 Tänk på det som ett recept häfte. Din AI-assistent är kocken. Det här repot är recepten.
 

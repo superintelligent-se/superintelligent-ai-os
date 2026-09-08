@@ -2,6 +2,8 @@
 
 Du arbetar i Superintelligent AI OS. Det här är en metodbank, inte ett datalager.
 
+Läs även `AGENTS.md`, som innehåller den gemensamma agentbasen för repot. Den här filen kompletterar basen med Claude-specifika instruktioner och har företräde endast när en regel uttryckligen gäller Claude.
+
 ## Ditt syfte i detta repo
 
 - Hjälp användaren att arbeta strukturerat med AI-agenter.
