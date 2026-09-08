@@ -21,6 +21,8 @@ Ger AI-agenten möjlighet att skapa presentationer, dokument och webbsidor via G
 3. Be agenten: "Skapa en Gamma-presentation baserat på den här briefen".
 4. Verifiera webb-, PDF- och eventuell PPTX-output mot briefen innan leverans.
 
+Använd de kanoniska SVG-filerna i `skills/superintelligent-brand/assets/logos/`. Wordmark ska importeras som asset, inte återskapas som text. Om vald Gamma-template inte kan bevara proportioner, frizon och rätt variant ska logotypen appliceras efter export eller adaptern väljas bort.
+
 ## Tips
 
 - Gamma har smarta defaults — ju mer specifik brief, desto bättre resultat

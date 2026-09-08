@@ -1,6 +1,6 @@
 # Pilot: visuella kunskapsleveranser
 
-Tre generiska, personuppgiftsfria artefakter renderas från samma innehållsmodell, design tokens, komponentbibliotek och runtime:
+Tre generiska, personuppgiftsfria artefakter renderas från samma innehållsmodell, officiella logotypassets, design tokens, komponentbibliotek och runtime:
 
 1. `keynote.html` - talarledd 16:9-presentation med notes och presenter mode.
 2. `strategy-story.html` - asynkron strategiberättelse med självstyrd navigation.
@@ -21,6 +21,8 @@ python3 -m http.server 8000 --directory pilots/visual-knowledge/dist
 ```
 
 Ingen nätverksanslutning behövs för rendering eller användning. Hosting är en separat adapter.
+
+Renderern använder svart wordmark i ljust sidhuvud, vit wordmark på lila öppnings-/avslutningsslides och lila Picture Mark som favicon, sidfotssignatur och diskret identitet på innehållsslides. Alla varianter hämtas från `skills/superintelligent-brand/assets/logos/`.
 
 ## QA och PDF
 

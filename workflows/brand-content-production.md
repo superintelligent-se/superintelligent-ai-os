@@ -7,11 +7,12 @@ Används för att producera LinkedIn-inlägg, presentationer, rapporter eller an
 ### 1. Briefing
 - Vad ska produceras? (inlägg, presentation, rapport, e-post)
 - Vem är mottagaren?
-- Vad är syftet? (räckvidd, konvertering, relation, utbildning)
+- Vad är syftet? (räckvidd, konvertering, relation, träning eller förmågeutveckling)
 - Finns det källmaterial att utgå från?
 
 ### 2. Läs relevant skill
 - Läs `skills/superintelligent-brand/SKILL.md`
+- För formgivna leveranser: läs `skills/superintelligent-brand/references/logo-system.md` och välj godkänd logoasset före rendering
 - För visuella kunskapsleveranser: läs `skills/superintelligent-artifact-strategy/SKILL.md` och routa till presentations- eller narrative-sites-skillen
 - Läs aktuell kanalregel i `references/channel-rules.md`
 - Läs relevant template i `/templates/`
@@ -29,3 +30,4 @@ Används för att producera LinkedIn-inlägg, presentationer, rapporter eller an
 ### 5. Leverans
 - Leverera i rätt format (webb, slides, PDF, redigerbart original, Markdown eller ren text)
 - Notera om bilder eller visuellt material behöver skapas separat
+- Verifiera logotypvariant, proportioner, frizon, kontrast och att alla assets är lokala före leverans

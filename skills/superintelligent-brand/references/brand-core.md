@@ -162,6 +162,12 @@ Stödfärgerna är funktionella neutraler, inte accenter.
 | Metadata | Inter | Medium |
 | CTA/Knappar | Inter | SemiBold/Bold |
 
+## Logotyp
+
+Wordmarken är den primära avsändaren. Picture Mark är en kompakt signatur för små, kvadratiska eller redan tydligt avsända ytor. Använd svart wordmark på vitt och vit wordmark på Super Purple. På vit yta får lila Picture Mark användas som identitetsaccent.
+
+För assetval, kvadratiska varianter, frizon och tillgänglighet, följ [logotypsystemet](logo-system.md).
+
 ## Slutlig designriktning
 
 **Clear Intelligent Premium**

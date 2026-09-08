@@ -64,6 +64,14 @@ Undvik:
 - Gradienter, skuggor och tonade ytor
 - Mörka bakgrundsplattor
 
+## Logotyp i slides
+
+- Öppnings- och avslutningsslide: vit wordmark på lila yta eller svart wordmark på vit yta.
+- Innehållsslides: använd en liten lila Picture Mark som diskret avsändare.
+- Upprepa inte full wordmark på varje innehållsslide.
+- Bevara proportioner och frizon; använd endast assets och kombinationer i [logotypsystemet](logo-system.md).
+- I presenter view kan svart wordmark användas som orienterande gränssnittsidentitet; den är inte en del av scenytans innehåll.
+
 ---
 
 ## Slide-typer
@@ -135,3 +143,5 @@ Analysera materialet och skapa en svensk presentation enligt Superintelligents v
 **Rubriker:** Raleway ExtraBold
 **Brödtext:** Inter Regular
 **CTA:** Inter SemiBold
+
+**Logotyp:** svart wordmark på vitt, vit wordmark på lila, lila Picture Mark för diskret signatur

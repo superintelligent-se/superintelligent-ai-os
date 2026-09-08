@@ -43,6 +43,13 @@ Används som brief när formatroutingen har valt Gamma som leveransadapter. Kano
 - Färger: #FFFFFF (bakgrund), #000000 (text), #6F00FF (enda accentfärg)
 - Hero-, statement- och CTA-slides: helfyllt #6F00FF med vit text
 
+## Logotyp
+
+- Öppning och avslutning: `superintelligent-logo-white.svg` på lila yta eller `superintelligent-logo-black.svg` på vit yta
+- Innehållsslides: diskret `superintelligent-logo-picturemark-6F00FF-square.svg`
+- Använd assets från `skills/superintelligent-brand/assets/logos/`; ersätt inte med text eller en återskapad logotyp
+- Bevara proportioner och frizon enligt `skills/superintelligent-brand/references/logo-system.md`
+
 ## Källmaterial
 
 [Lista källfiler, anteckningar eller information som ska ingå]

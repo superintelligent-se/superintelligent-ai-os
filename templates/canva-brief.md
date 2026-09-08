@@ -35,6 +35,13 @@ Används för att briefa en designer eller AI-verktyg om ett Canva-projekt.
 - Generera ny bild: [se `skills/superintelligent-brand/references/image-prompts.md`]
 - Ikon: [namn eller beskrivning]
 
+## Logotyp
+
+- Variant: [svart wordmark / vit wordmark / lila Picture Mark / ingen]
+- Placering: [avsändare / diskret signatur / favicon eller kvadratisk ikon]
+- Asset: [fil från `skills/superintelligent-brand/assets/logos/`]
+- Bevara originalproportioner, frizon och godkänd färgkombination enligt `skills/superintelligent-brand/references/logo-system.md`
+
 ## Referens
 
 [Länk till befintlig design eller inspiration]

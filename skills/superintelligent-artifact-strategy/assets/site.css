@@ -33,11 +33,11 @@
 }
 
 .site-brand {
-  color: var(--si-black);
-  font-family: var(--si-font-heading);
-  font-weight: 850;
+  display: inline-flex;
+  flex: 0 0 auto;
   text-decoration: none;
 }
+.site-brand__logo { display: block; height: auto; width: clamp(9.5rem, 15vw, 12rem); }
 
 .site-nav { display: flex; flex-wrap: wrap; gap: var(--si-space-2); }
 .site-nav a { color: var(--si-graphite); font-size: 0.9rem; }
@@ -63,6 +63,9 @@
   justify-content: space-between;
   padding-block: var(--si-space-4);
 }
+.site-footer__brand { align-items: center; display: inline-flex; gap: 0.75rem; }
+.site-footer__mark { height: 1.7rem; width: 1.7rem; }
+.print-brand { display: none; }
 
 @media (max-width: 760px) {
   .site-header__inner { align-items: flex-start; flex-direction: column; padding-block: var(--si-space-2); }
@@ -73,6 +76,7 @@
 @media print {
   @page { margin: 14mm; size: A4; }
   .site-header, .skip-link, .calculator { display: none !important; }
+  .print-brand { display: block; margin-bottom: 16mm; width: 52mm; }
   .print-fallback { display: block; }
   .site-section { break-inside: avoid; }
   .site-section__inner { padding: 12mm 0; }

@@ -82,6 +82,10 @@
       overflow,
       brokenAssets,
       remoteAssets,
+      brandAssets: {
+        logos: qsa("img.si-logo").length,
+        favicon: Boolean(document.querySelector('link[rel="icon"][href*="picturemark"]'))
+      },
       landmarks: { main: qsa("main").length, nav: qsa("nav").length },
       headings: qsa("h1, h2, h3").map((heading) => heading.tagName),
       fonts: {

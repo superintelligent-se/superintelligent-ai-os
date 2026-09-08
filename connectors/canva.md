@@ -28,6 +28,8 @@ Ger AI-agenten möjlighet att skapa och redigera designs i Canva via Canva MCP-s
 3. Be agenten: "Skapa en design i Canva baserat på den här briefen"
 4. Granska och justera direkt i Canva-editorn
 
+Importera godkänd wordmark/Picture Mark från `skills/superintelligent-brand/assets/logos/` till aktuellt Brand Kit eller projekt. Använd aldrig Canva-text som ersättning för wordmarken och följ `skills/superintelligent-brand/references/logo-system.md` för variant och placering.
+
 ## Viktigt
 
 - Agenten kan inte se eller läsa ditt befintliga bildbibliotek utan att du pekar på specifika designs

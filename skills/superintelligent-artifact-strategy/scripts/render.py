@@ -19,6 +19,16 @@ ALLOWED_TYPES = {
     "timeline", "data_visualization", "quote", "case_study", "decision",
     "calculator", "cta", "appendix",
 }
+LOGO_ASSETS = (
+    "superintelligent-logo-black.svg",
+    "superintelligent-logo-white.svg",
+    "superintelligent-logo-picturemark-6F00FF.svg",
+    "superintelligent-logo-picturemark-black.svg",
+    "superintelligent-logo-picturemark-white.svg",
+    "superintelligent-logo-picturemark-6F00FF-square.svg",
+    "superintelligent-logo-picturemark-black-square.svg",
+    "superintelligent-logo-picturemark-white-square.svg",
+)
 
 
 def esc(value: Any) -> str:
@@ -132,7 +142,7 @@ def page_head(artifact: dict[str, Any], digest: str, stylesheet: str) -> str:
   <meta name="generator" content="superintelligent-visual-system">
   <meta name="source-sha256" content="{digest}">
   <title>{esc(artifact['title'])} - Superintelligent</title>
-  <link rel="icon" href="data:,">
+  <link rel="icon" href="assets/superintelligent-logo-picturemark-6F00FF-square.svg" type="image/svg+xml">
   <link rel="stylesheet" href="assets/design-tokens.css">
   <link rel="stylesheet" href="assets/components.css">
   <link rel="stylesheet" href="assets/{stylesheet}">
@@ -144,15 +154,20 @@ def render_site(artifact: dict[str, Any], digest: str, version: str, sources: li
     sections = []
     for component in artifact["components"]:
         classes = ["site-section", f'site-section--{component["type"].replace("_", "-")}']
-        if component["type"] in {"hero", "cta"} and component.get("purple", component["type"] == "hero"):
+        is_purple = component["type"] in {"hero", "cta"} and component.get("purple", component["type"] == "hero")
+        if is_purple:
             classes.append("site-section--purple")
-        sections.append(f'<section class="{" ".join(classes)}" id="{esc(component["id"])}"><div class="site-section__inner">{render_component_body(component)}</div></section>')
+        print_brand = ""
+        if component["type"] == "hero":
+            logo = "superintelligent-logo-white.svg" if is_purple else "superintelligent-logo-black.svg"
+            print_brand = f'<img class="si-logo print-brand" src="assets/{logo}" alt="Superintelligent">'
+        sections.append(f'<section class="{" ".join(classes)}" id="{esc(component["id"])}"><div class="site-section__inner">{print_brand}{render_component_body(component)}</div></section>')
     return page_head(artifact, digest, "site.css") + f'''
 <body>
   <a class="skip-link" href="#main">Hoppa till innehållet</a>
-  <header class="site-header"><div class="site-header__inner"><a class="site-brand" href="#main">Superintelligent</a><nav class="site-nav" aria-label="Innehåll">{nav}</nav></div></header>
+  <header class="site-header"><div class="site-header__inner"><a class="site-brand" href="#main"><img class="si-logo site-brand__logo" src="assets/superintelligent-logo-black.svg" alt="Superintelligent"></a><nav class="site-nav" aria-label="Innehåll">{nav}</nav></div></header>
   <main id="main">{"".join(sections)}{source_list(sources)}</main>
-  <footer class="site-footer"><span>Vi demokratiserar AI.</span><span>System {esc(version)} · Källa {digest[:12]}</span></footer>
+  <footer class="site-footer"><span class="site-footer__brand"><img class="si-logo site-footer__mark" src="assets/superintelligent-logo-picturemark-6F00FF-square.svg" alt="" aria-hidden="true"><span>Vi demokratiserar AI.</span></span><span>System {esc(version)} · Källa {digest[:12]}</span></footer>
   <script src="assets/runtime.js" defer></script>
 </body>
 </html>'''
@@ -162,15 +177,21 @@ def render_slides(artifact: dict[str, Any], digest: str, version: str) -> str:
     slides = []
     for component in artifact["components"]:
         classes = ["slide", f'slide--{component["type"].replace("_", "-")}']
-        if component["type"] in {"hero", "cta"} and component.get("purple", True):
+        is_purple = component["type"] in {"hero", "cta"} and component.get("purple", True)
+        if is_purple:
             classes.append("slide--purple")
+        if component["type"] in {"hero", "cta"}:
+            logo = "superintelligent-logo-white.svg" if is_purple else "superintelligent-logo-black.svg"
+            brand = f'<img class="si-logo slide-brand slide-brand--wordmark" src="assets/{logo}" alt="" aria-hidden="true">'
+        else:
+            brand = '<img class="si-logo slide-brand slide-brand--picturemark" src="assets/superintelligent-logo-picturemark-6F00FF-square.svg" alt="" aria-hidden="true">'
         notes = esc(component.get("notes", ""))
-        slides.append(f'<section class="{" ".join(classes)}" id="{esc(component["id"])}" aria-label="{esc(component["title"])}"><div class="slide__inner">{render_component_body(component)}</div><aside class="notes" hidden>{notes}</aside></section>')
+        slides.append(f'<section class="{" ".join(classes)}" id="{esc(component["id"])}" aria-label="{esc(component["title"])}">{brand}<div class="slide__inner">{render_component_body(component)}</div><aside class="notes" hidden>{notes}</aside></section>')
     return page_head(artifact, digest, "slides.css") + f'''
 <body>
   <main class="deck" data-deck>{"".join(slides)}</main>
   <nav class="deck-controls" aria-label="Presentationskontroller"><button type="button" data-prev aria-label="Föregående slide">←</button><span class="slide-count" data-slide-count aria-live="polite"></span><button type="button" data-next aria-label="Nästa slide">→</button><button type="button" data-presenter>Presenter</button></nav>
-  <aside class="presenter-panel" aria-label="Presenter view"><div><strong>Presenter view</strong><div class="presenter-timer" data-presenter-timer>00:00</div></div><div class="presenter-notes" data-presenter-notes></div><div><strong>Nästa</strong><div class="next-preview" data-next-preview></div></div></aside>
+  <aside class="presenter-panel" aria-label="Presenter view"><div class="presenter-header"><img class="si-logo presenter-logo" src="assets/superintelligent-logo-black.svg" alt="Superintelligent"><div class="presenter-timer" data-presenter-timer>00:00</div></div><div class="presenter-notes" data-presenter-notes></div><div><strong>Nästa</strong><div class="next-preview" data-next-preview></div></div></aside>
   <script src="assets/runtime.js" defer></script>
 </body>
 </html>'''
@@ -186,6 +207,8 @@ def copy_assets(output: Path) -> None:
         SKILL_ROOT / "assets" / "slides.css": target / "slides.css",
         SKILL_ROOT / "assets" / "runtime.js": target / "runtime.js",
     }
+    for name in LOGO_ASSETS:
+        files[BRAND_ROOT / "assets" / "logos" / name] = target / name
     for source, destination in files.items():
         if not source.exists():
             raise FileNotFoundError(source)

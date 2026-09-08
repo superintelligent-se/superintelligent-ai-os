@@ -1,4 +1,9 @@
-# Skill: Superintelligent Brand
+---
+name: superintelligent-brand
+description: Tillämpa Superintelligents röst, visuella identitet, logotypsystem och kanalregler när innehåll eller design produceras i varumärkets namn.
+---
+
+# Superintelligent Brand
 
 Den här skillet styr hur AI-agenten kommunicerar och producerar innehåll på uppdrag av Superintelligent.
 
@@ -83,8 +88,9 @@ Designriktningen heter **Clear Intelligent Premium**.
 ## Läs mer
 
 - [Brand Core](references/brand-core.md) — kärnidentitet, positionering, målgrupper, färger, typografi
+- [Logotypsystem](references/logo-system.md) — val av wordmark/Picture Mark, placering, färg och tillgänglighet
 - [Presentationsregler](references/presentation-rules.md) — slides, layout, grafik, Gamma/Canva-instruktioner
 - [Bildpromptar](references/image-prompts.md) — färdiga promptar för alla bildtyper
 - [Kanalregler](references/channel-rules.md) — LinkedIn, webb, e-post, offert, rubrikbank
 
-Maskinläsbara design tokens finns i `assets/design-tokens.css`. De är den kanoniska implementationen av färg-, typografi-, spacing- och fokusvariabler för kodrenderade visuella artefakter.
+Maskinläsbara design tokens finns i `assets/design-tokens.css`. Godkända, normaliserade logotyper finns i `assets/logos/`. Dessa är den kanoniska implementationen av varumärkets visuella grund för kodrenderade artefakter.

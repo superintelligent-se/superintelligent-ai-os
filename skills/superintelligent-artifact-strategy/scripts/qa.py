@@ -10,6 +10,7 @@ import subprocess
 import sys
 import tempfile
 from pathlib import Path
+from urllib.parse import urlencode
 
 
 SCRIPT_ROOT = Path(__file__).resolve().parent
@@ -24,8 +25,13 @@ def chrome_base(chrome: Path, profile: Path) -> list[str]:
     return [str(chrome), "--headless", "--disable-gpu", "--no-first-run", "--run-all-compositor-stages-before-draw"]
 
 
-def inspect_dom(chrome: Path, profile: Path, page: Path, size: tuple[int, int]) -> dict[str, object]:
-    url = page.resolve().as_uri() + "?qa=1"
+def page_url(page: Path, params: dict[str, str] | None = None) -> str:
+    return page.resolve().as_uri() + (f"?{urlencode(params)}" if params else "")
+
+
+def inspect_dom(chrome: Path, profile: Path, page: Path, size: tuple[int, int], params: dict[str, str] | None = None) -> dict[str, object]:
+    query = {"qa": "1", **(params or {})}
+    url = page_url(page, query)
     result = run(chrome_base(chrome, profile) + ["--virtual-time-budget=2000", f"--window-size={size[0]},{size[1]}", "--dump-dom", url], capture=True)
     match = re.search(r'<script id="qa-result" type="application/json">(.*?)</script>', result.stdout, re.DOTALL)
     if not match:
@@ -33,8 +39,8 @@ def inspect_dom(chrome: Path, profile: Path, page: Path, size: tuple[int, int]) 
     return json.loads(match.group(1))
 
 
-def screenshot(chrome: Path, profile: Path, page: Path, size: tuple[int, int], destination: Path) -> None:
-    url = page.resolve().as_uri()
+def screenshot(chrome: Path, profile: Path, page: Path, size: tuple[int, int], destination: Path, params: dict[str, str] | None = None) -> None:
+    url = page_url(page, params)
     run(chrome_base(chrome, profile) + ["--virtual-time-budget=1500", f"--window-size={size[0]},{size[1]}", f"--screenshot={destination}", url])
 
 
@@ -65,15 +71,27 @@ def main() -> int:
         for artifact in data["artifacts"]:
             artifact_id = artifact["id"]
             page = args.output / f"{artifact_id}.html"
-            sizes = [(1440, 900)] if artifact["mode"] == "slides" else [(1440, 1200), (500, 844)]
+            if artifact["mode"] == "slides":
+                cases = [
+                    ((1440, 900), {"slide": str(index)}, f"1440x900-slide-{index:02d}")
+                    for index in range(1, len(artifact["components"]) + 1)
+                ]
+            else:
+                cases = [((1440, 1200), None, "1440x1200"), ((500, 844), None, "500x844")]
             checks = []
-            for width, height in sizes:
-                label = f"{width}x{height}"
-                current = inspect_dom(args.chrome, profile, page, (width, height))
+            for (width, height), params, label in cases:
+                current = inspect_dom(args.chrome, profile, page, (width, height), params)
                 screenshot_path = args.qa_dir / f"{artifact_id}-{label}.png"
-                screenshot(args.chrome, profile, page, (width, height), screenshot_path)
+                screenshot(args.chrome, profile, page, (width, height), screenshot_path, params)
                 current["screenshot"] = str(screenshot_path)
-                current["passed"] = not current["overflow"] and not current["brokenAssets"] and not current["remoteAssets"] and current["landmarks"]["main"] == 1
+                current["passed"] = (
+                    not current["overflow"]
+                    and not current["brokenAssets"]
+                    and not current["remoteAssets"]
+                    and current["landmarks"]["main"] == 1
+                    and current["brandAssets"]["logos"] > 0
+                    and current["brandAssets"]["favicon"]
+                )
                 report["passed"] = bool(report["passed"] and current["passed"])
                 checks.append(current)
             if artifact_id in args.pdf_artifact:
