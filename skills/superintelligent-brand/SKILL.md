@@ -86,3 +86,5 @@ Designriktningen heter **Clear Intelligent Premium**.
 - [Presentationsregler](references/presentation-rules.md) — slides, layout, grafik, Gamma/Canva-instruktioner
 - [Bildpromptar](references/image-prompts.md) — färdiga promptar för alla bildtyper
 - [Kanalregler](references/channel-rules.md) — LinkedIn, webb, e-post, offert, rubrikbank
+
+Maskinläsbara design tokens finns i `assets/design-tokens.css`. De är den kanoniska implementationen av färg-, typografi-, spacing- och fokusvariabler för kodrenderade visuella artefakter.

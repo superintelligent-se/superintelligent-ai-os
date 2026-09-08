@@ -1,6 +1,6 @@
 # Template: Gamma Presentation
 
-Används som brief för att generera en presentation i Gamma.
+Används som brief när formatroutingen har valt Gamma som leveransadapter. Kanoniskt innehåll och källor ska behållas separat så att leveransen kan reproduceras eller migreras.
 
 ---
 
@@ -21,6 +21,9 @@ Används som brief för att generera en presentation i Gamma.
 - Antal slides: [rekommendation: 8–12]
 - Längd på presentation: [X minuter]
 - Språk: [Svenska / Engelska]
+- Konsumtion: [talarledd / självstyrd / hybrid]
+- Offline/PDF: [krav och test]
+- Redigerbar överlämning: [nej / PPTX / Google Slides, med verifieringskrav]
 
 ## Innehållsstruktur
 

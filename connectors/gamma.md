@@ -1,6 +1,6 @@
 # Connector: Gamma
 
-Ger AI-agenten möjlighet att skapa presentationer, dokument och webbsidor via Gamma MCP-servern.
+Ger AI-agenten möjlighet att skapa presentationer, dokument och webbsidor via Gamma MCP-servern. Gamma är en valfri leveransadapter; välj först format enligt `skills/superintelligent-artifact-strategy/SKILL.md`.
 
 ## Förutsättningar
 
@@ -16,9 +16,10 @@ Ger AI-agenten möjlighet att skapa presentationer, dokument och webbsidor via G
 
 ## Kom igång
 
-1. Fyll i `templates/gamma-presentation.md`
-2. Be agenten: "Skapa en Gamma-presentation baserat på den här briefen"
-3. Agenten genererar presentationen och ger dig en länk
+1. Bekräfta att Gamma passar konsumtionssätt, redigeringsbehov, sekretess, offlinekrav och livscykel.
+2. Fyll i `templates/gamma-presentation.md`.
+3. Be agenten: "Skapa en Gamma-presentation baserat på den här briefen".
+4. Verifiera webb-, PDF- och eventuell PPTX-output mot briefen innan leverans.
 
 ## Tips
 
@@ -30,3 +31,6 @@ Ger AI-agenten möjlighet att skapa presentationer, dokument och webbsidor via G
 
 - Gamma MCP kan skapa men inte direkt redigera befintliga presentationer
 - Bilder genereras automatiskt av Gamma baserat på innehållet
+- Kanoniskt innehåll och källor bör behållas utanför Gamma så att leveransen kan reproduceras eller migreras
+- Offline, PDF-fidelitet, presenter experience och verklig PPTX-redigerbarhet måste testas per leverans
+- Custom fonts, analytics, domän och avancerad delning kan bero på plan; kontrollera aktuella villkor före val

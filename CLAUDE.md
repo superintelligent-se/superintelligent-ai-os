@@ -68,11 +68,13 @@ Gör bedömningen snabbt — om du är osäker, fråga.
 - Visuell riktning: Clear Intelligent Premium.
 - Färger: #FFFFFF (bakgrund), #000000 (text), #6F00FF (enda accentfärg). Inget guld, inga mörka bakgrunder.
 
-## Presentationer — använd alltid Gamma
+## Visuella kunskapsleveranser — välj format före verktyg
 
-När användaren ber om en presentation (oavsett ämne eller kontext) ska du alltid använda Gamma via MCP-kopplingen `mcp__4a027e1e-a299-4f85-87b2-f9c48e86c489__generate`. Skapa aldrig .pptx-filer för presentationer.
+När användaren ber om en presentation, webbberättelse, visuellt beslutsunderlag eller liknande: läs `skills/superintelligent-artifact-strategy/SKILL.md`. Skilj talarledda slides från asynkron webb, hybridleverans och redigerbar överlämning innan verktyg väljs.
 
-### Gamma-instruktion (skicka alltid med denna brandinfo)
+Gamma är ett valfritt undantag under pilot, inte obligatorisk standard. Använd Gamma via MCP-kopplingen `mcp__4a027e1e-a299-4f85-87b2-f9c48e86c489__generate` när routingen och användarens krav motiverar det. Använd PowerPoint eller Google Slides när redigerbar överlämning är ett uttryckligt krav.
+
+### Gamma-instruktion (skicka alltid med denna brandinfo när Gamma valts)
 
 Använd följande brand settings när du genererar presentationen:
 

@@ -79,7 +79,7 @@ Superintelligent ska låta: tydligt, självsäkert, mänskligt, praktiskt, visio
 - En idé per slide
 - Rubriken är slutsatsen, inte ämnet
 - Max 40–60 ord per slide
-- Variera: ljusa slides (förklaring), mörka slides (keynote-statements), citatslides
+- Variera: vita slides (förklaring), helfyllda lila slides (keynote-statements), citatslides
 
 ### Slide-typer från brand guide
 
