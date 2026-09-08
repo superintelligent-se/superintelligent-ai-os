@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "assets": {
+    "superintelligent-logo-black.svg": {
+      "source": "superintelligent-logo-black.svg",
+      "source_sha256": "f07affb92d4d1271094423e0568bfc8783e7ed90da8a637191ecff53b468b5b7",
+      "sha256": "7641cf28bf03fa4e666e052687ebeaf33d000055f023f4b0b797d1d27d4394ae",
+      "variant": "native"
+    },
+    "superintelligent-logo-white.svg": {
+      "source": "superintelligent-logo-white.svg",
+      "source_sha256": "21e4e2622ea1f87ff669ebfe3239bbb6241c597b1a4ac19f0bdd9ff2357f3711",
+      "sha256": "de4ef5c0dc190b7d1a8507b5fa1883214a28ab1f8ce11cb52aa2d9d77b51e23d",
+      "variant": "native"
+    },
+    "superintelligent-logo-picturemark-6F00FF.svg": {
+      "source": "superintelligent-logo-picturemark-6F00FF.svg",
+      "source_sha256": "8f889e228177e44ccf575a79110edde9d6da90c61ab2e8e19aa3740773157fa5",
+      "sha256": "e009bbc0a71ff40fd9043ac0390993b37e763368f33c9f3fd70238a5d6824011",
+      "variant": "native"
+    },
+    "superintelligent-logo-picturemark-black.svg": {
+      "source": "superintelligent-logo-picturemark-black.svg",
+      "source_sha256": "83f3e6a984205a746c93bf4e30612b6f9e65111ddb7ca9f4cfe480d2d9581edf",
+      "sha256": "8e9890087d23dd67cbf28f0347d65fc2d41fd8dddf4f114acfb2d949bcd6b114",
+      "variant": "native"
+    },
+    "superintelligent-logo-picturemark-white.svg": {
+      "source": "superintelligent-logo-picturemark-white.svg",
+      "source_sha256": "c5e404eda14cfe5052484d988f89dce18eff4b548d1021b23499f04022755ffc",
+      "sha256": "861b742a79c4b6c3da2aaeac6cfa1c5bed02f335db488ebd4e568e0f97c049c2",
+      "variant": "native"
+    },
+    "superintelligent-logo-picturemark-6F00FF-square.svg": {
+      "source": "superintelligent-logo-picturemark-6F00FF.svg",
+      "sha256": "24bd061dcce264d872f50f80d1d7d746d2dfa40901b21e6c93266486a6ecd477",
+      "variant": "square-transparent-8-percent-safe-zone"
+    },
+    "superintelligent-logo-picturemark-black-square.svg": {
+      "source": "superintelligent-logo-picturemark-black.svg",
+      "sha256": "9e9c659768d95db086946aad68c735be7ea806704a6b33a196790579f5740c57",
+      "variant": "square-transparent-8-percent-safe-zone"
+    },
+    "superintelligent-logo-picturemark-white-square.svg": {
+      "source": "superintelligent-logo-picturemark-white.svg",
+      "sha256": "e16e1e67a18f7a09317f72c0a81c1aa62cc294ba41836edecf3e108fd7a81b27",
+      "variant": "square-transparent-8-percent-safe-zone"
+    }
+  }
+}

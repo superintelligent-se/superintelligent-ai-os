@@ -1,0 +1,88 @@
+.skip-link {
+  background: var(--si-white);
+  left: var(--si-space-2);
+  padding: var(--si-space-2);
+  position: fixed;
+  top: -8rem;
+  z-index: 20;
+}
+.skip-link:focus { top: var(--si-space-2); }
+
+.site-header {
+  background: rgba(255, 255, 255, 0.96);
+  border-bottom: var(--si-line);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.site-header__inner,
+.site-footer,
+.site-section__inner {
+  margin-inline: auto;
+  max-width: var(--si-content-width);
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
+}
+
+.site-header__inner {
+  align-items: center;
+  display: flex;
+  gap: var(--si-space-2);
+  justify-content: space-between;
+  min-height: 4.5rem;
+}
+
+.site-brand {
+  display: inline-flex;
+  flex: 0 0 auto;
+  text-decoration: none;
+}
+.site-brand__logo { display: block; height: auto; width: clamp(9.5rem, 15vw, 12rem); }
+
+.site-nav { display: flex; flex-wrap: wrap; gap: var(--si-space-2); }
+.site-nav a { color: var(--si-graphite); font-size: 0.9rem; }
+
+.site-section {
+  border-bottom: var(--si-line);
+  scroll-margin-top: 5rem;
+}
+
+.site-section__inner { padding-block: clamp(4rem, 10vw, 8rem); }
+.site-section--hero .site-section__inner { min-height: min(50rem, 88vh); display: grid; align-content: center; }
+.site-section--purple { background: var(--si-purple); color: var(--si-white); }
+.site-section--purple .eyebrow,
+.site-section--purple .lede,
+.site-section--purple a { color: var(--si-white); }
+
+.site-footer {
+  color: var(--si-graphite);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.82rem;
+  gap: var(--si-space-2);
+  justify-content: space-between;
+  padding-block: var(--si-space-4);
+}
+.site-footer__brand { align-items: center; display: inline-flex; gap: 0.75rem; }
+.site-footer__mark { height: 1.7rem; width: 1.7rem; }
+.print-brand { display: none; }
+
+@media (max-width: 760px) {
+  .site-header__inner { align-items: flex-start; flex-direction: column; padding-block: var(--si-space-2); }
+  .site-nav { gap: 0.7rem 1rem; }
+  .site-section--hero .site-section__inner { min-height: 72vh; }
+}
+
+@media print {
+  @page { margin: 14mm; size: A4; }
+  .site-header, .skip-link, .calculator { display: none !important; }
+  .print-brand { display: block; margin-bottom: 16mm; width: 52mm; }
+  .print-fallback { display: block; }
+  .site-section { break-inside: avoid; }
+  .site-section__inner { padding: 12mm 0; }
+  .site-section--purple .site-section__inner { padding-inline: 8mm; }
+  .site-section--hero .site-section__inner { min-height: 0; }
+  .site-section--purple { background: var(--si-purple) !important; color: var(--si-white) !important; print-color-adjust: exact; }
+  a { color: var(--si-black); text-decoration: none; }
+  .site-footer { padding-inline: 0; }
+}

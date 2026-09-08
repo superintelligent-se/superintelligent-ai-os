@@ -1,0 +1,52 @@
+:root {
+  --si-white: #ffffff;
+  --si-black: #000000;
+  --si-purple: #6f00ff;
+  --si-graphite: #2b2b33;
+  --si-warm-grey: #e8e4de;
+  --si-font-heading: "Raleway", "Avenir Next", Arial, sans-serif;
+  --si-font-body: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --si-space-1: 0.5rem;
+  --si-space-2: 1rem;
+  --si-space-3: 1.5rem;
+  --si-space-4: 2rem;
+  --si-space-6: 3rem;
+  --si-space-8: 4rem;
+  --si-radius-card: 1.25rem;
+  --si-radius-control: 0.75rem;
+  --si-content-width: 72rem;
+  --si-line: 1px solid var(--si-warm-grey);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: light;
+  background: var(--si-white);
+  color: var(--si-black);
+  font-family: var(--si-font-body);
+  font-synthesis: none;
+}
+
+body {
+  margin: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--si-purple);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+

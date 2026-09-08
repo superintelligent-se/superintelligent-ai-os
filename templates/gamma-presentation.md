@@ -1,6 +1,6 @@
 # Template: Gamma Presentation
 
-Används som brief för att generera en presentation i Gamma.
+Används som brief när formatroutingen har valt Gamma som leveransadapter. Kanoniskt innehåll och källor ska behållas separat så att leveransen kan reproduceras eller migreras.
 
 ---
 
@@ -21,6 +21,9 @@ Används som brief för att generera en presentation i Gamma.
 - Antal slides: [rekommendation: 8–12]
 - Längd på presentation: [X minuter]
 - Språk: [Svenska / Engelska]
+- Konsumtion: [talarledd / självstyrd / hybrid]
+- Offline/PDF: [krav och test]
+- Redigerbar överlämning: [nej / PPTX / Google Slides, med verifieringskrav]
 
 ## Innehållsstruktur
 
@@ -39,6 +42,13 @@ Används som brief för att generera en presentation i Gamma.
 - Visuell riktning: Clear Intelligent Premium
 - Färger: #FFFFFF (bakgrund), #000000 (text), #6F00FF (enda accentfärg)
 - Hero-, statement- och CTA-slides: helfyllt #6F00FF med vit text
+
+## Logotyp
+
+- Öppning och avslutning: `superintelligent-logo-white.svg` på lila yta eller `superintelligent-logo-black.svg` på vit yta
+- Innehållsslides: diskret `superintelligent-logo-picturemark-6F00FF-square.svg`
+- Använd assets från `skills/superintelligent-brand/assets/logos/`; ersätt inte med text eller en återskapad logotyp
+- Bevara proportioner och frizon enligt `skills/superintelligent-brand/references/logo-system.md`
 
 ## Källmaterial
 

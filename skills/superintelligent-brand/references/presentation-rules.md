@@ -4,7 +4,7 @@
 
 **Clear Intelligent Premium — vitt, luftigt, tydligt, premium och mänskligt.**
 
-Grundinstruktion till Gamma, Canva eller liknande verktyg:
+Grundinstruktion till vald renderer eller leveransadapter:
 > Skapa en presentation för Superintelligent enligt varumärkesriktningen Clear Intelligent Premium. Bakgrunden ska vara ren vit (#FFFFFF) och all text svart (#000000). Lila #6F00FF är enda accentfärgen. Enda undantaget är hero-, statement- och CTA-slides som ska vara helfyllda i lila med vit text. Använd inget guld, inga mörka bakgrunder och inga tonade färgytor. Varumärket ska kännas modigt, mänskligt, premium och praktiskt. Tagline: "Vi demokratiserar AI." Svenska som primärt språk. Undvik ordet utbildning och använd i stället träning, AI-träning, färdighetsträning och förmågeutveckling.
 
 ---
@@ -63,6 +63,14 @@ Undvik:
 - Guld och alla andra accentfärger
 - Gradienter, skuggor och tonade ytor
 - Mörka bakgrundsplattor
+
+## Logotyp i slides
+
+- Öppnings- och avslutningsslide: vit wordmark på lila yta eller svart wordmark på vit yta.
+- Innehållsslides: använd en liten lila Picture Mark som diskret avsändare.
+- Upprepa inte full wordmark på varje innehållsslide.
+- Bevara proportioner och frizon; använd endast assets och kombinationer i [logotypsystemet](logo-system.md).
+- I presenter view kan svart wordmark användas som orienterande gränssnittsidentitet; den är inte en del av scenytans innehåll.
 
 ---
 
@@ -135,3 +143,5 @@ Analysera materialet och skapa en svensk presentation enligt Superintelligents v
 **Rubriker:** Raleway ExtraBold
 **Brödtext:** Inter Regular
 **CTA:** Inter SemiBold
+
+**Logotyp:** svart wordmark på vitt, vit wordmark på lila, lila Picture Mark för diskret signatur

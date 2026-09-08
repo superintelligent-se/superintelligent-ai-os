@@ -87,6 +87,12 @@ För att sätta upp automatisk commit och push till GitHub (för team som bidrar
 
 `AGENTS.md` är den gemensamma agentinstruktionen. Agentspecifika filer kompletterar den utan att duplicera skills eller workflows.
 
+### Visuella kunskapsleveranser
+
+Systemet är HTML-first, inte HTML-only. `superintelligent-artifact-strategy` väljer mellan talarledda slides, asynkron narrativ webb, hybridleverans och redigerbart original. Separata bygg-skills hanterar presentationer respektive narrative sites, medan `superintelligent-brand` förblir kanonisk källa för språk och design.
+
+Se [ADR 0001](docs/adr/0001-visual-knowledge-artifacts.md) och den [reproducerbara treartefaktspiloten](pilots/visual-knowledge/README.md).
+
 ---
 
 ## Personliga skills

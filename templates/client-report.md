@@ -7,6 +7,8 @@
 **Datum:** [ÅÅÅÅ-MM-DD]
 **Framtagen av:** Superintelligent
 
+**Logotyp:** svart wordmark på vit framsida eller vit wordmark på helfylld Super Purple-framsida. Använd kanonisk SVG från `skills/superintelligent-brand/assets/logos/`.
+
 ---
 
 ## Sammanfattning
@@ -64,3 +66,5 @@ Svara på: Vad har gjorts? Vad är det viktigaste fyndet? Vad rekommenderas?]
 ---
 
 *Superintelligent — Vi demokratiserar AI.*
+
+I formgiven PDF ersätts den textuella avsändaren i sidfoten med lila Picture Mark som diskret signatur. I Markdown eller ren text behålls raden ovan.

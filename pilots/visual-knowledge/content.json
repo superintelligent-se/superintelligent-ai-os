@@ -1,0 +1,290 @@
+{
+  "system_version": "0.2.0",
+  "sources": [
+    {
+      "title": "AI Daily Brief: 10+ Things You Should Build With AI Instead of Sending Files",
+      "url": "https://aidailybrief.ai/e/2026-06-07",
+      "accessed": "2026-09-08"
+    },
+    {
+      "title": "Reveal.js: Speaker View",
+      "url": "https://revealjs.com/speaker-view/",
+      "accessed": "2026-09-08"
+    },
+    {
+      "title": "Marp: Markdown Presentation Ecosystem",
+      "url": "https://marp.app/",
+      "accessed": "2026-09-08"
+    },
+    {
+      "title": "Slidev: Exporting",
+      "url": "https://sli.dev/guide/exporting",
+      "accessed": "2026-09-08"
+    }
+  ],
+  "artifacts": [
+    {
+      "id": "keynote",
+      "mode": "slides",
+      "title": "Formatet ska följa situationen",
+      "audience": "Ledningsgrupp och AI-ledare",
+      "purpose": "Skapa samsyn om när webb, slides och PDF bör användas.",
+      "components": [
+        {
+          "id": "keynote-open",
+          "type": "hero",
+          "title": "Formatet ska följa situationen.",
+          "body": "Inte verktyget. Inte vanan. Inte AI:ns första förslag.",
+          "eyebrow": "Superintelligent keynote",
+          "notes": "Öppna med konflikten: vi har blivit snabbare på att producera, men inte alltid bättre på att välja leveransform. Pausa efter varje kort mening."
+        },
+        {
+          "id": "keynote-shift",
+          "type": "key_insight",
+          "title": "Webben blir ankaret för levande kunskap.",
+          "body": "En canonical URL kan vara aktuell, sökbar, responsiv och maskinläsbar. Det är ett verkligt skifte - men inte ett universellt formatsvar.",
+          "items": [
+            {"title": "Aktuell", "body": "En adress pekar på den senaste publicerade versionen."},
+            {"title": "Självstyrd", "body": "Läsaren väljer roll, djup och ordning."},
+            {"title": "Mätbar", "body": "Interaktion kan ge signal när governance tillåter det."}
+          ],
+          "notes": "Bekräfta artikelns starkaste tes. Markera samtidigt att canonical inte betyder historielös: vi behöver Git-revision och arkivsnapshot."
+        },
+        {
+          "id": "keynote-four-jobs",
+          "type": "comparison",
+          "title": "Fyra jobb kräver fyra olika kontrakt.",
+          "body": "Att kalla allt presentation döljer vad leveransen måste klara.",
+          "items": [
+            {"title": "Live", "body": "Talaren styr sekvens, tempo och uppmärksamhet."},
+            {"title": "Asynkront", "body": "Mottagaren navigerar, söker och återkommer själv."}
+          ],
+          "notes": "Efter de två första: nämn hybrid och redigerbar överlämning muntligt. Nästa slide gör valet explicit."
+        },
+        {
+          "id": "keynote-rule",
+          "type": "decision",
+          "title": "HTML-first. Inte HTML-only.",
+          "body": "Välj webb för självstyrd och levande kunskap, slides för scenen, hybrid för viktiga externa leveranser och PPTX/Slides när redigering är ett krav.",
+          "decision": "En källa. Flera avsiktliga layouter. Verifierade exports.",
+          "notes": "Detta är beslutet. Läs inte hela sliden. Förklara att webb och slides delar innehåll och design tokens men inte layoutmodell."
+        },
+        {
+          "id": "keynote-system",
+          "type": "process",
+          "title": "Separera innehåll från leverans.",
+          "body": "Reproducerbarhet kommer från tydliga gränser.",
+          "items": [
+            {"title": "Källa", "body": "Kanoniskt innehåll och evidens."},
+            {"title": "Narrativ", "body": "Sekvens för scen eller informationsarkitektur för webb."},
+            {"title": "Renderer", "body": "Begränsade komponenter och design tokens."},
+            {"title": "Leverans", "body": "Publicering, export, QA och livscykel."}
+          ],
+          "notes": "Betona att vi inte genererar fri HTML/CSS per uppdrag. Systemet begränsar komponenterna och gör output reproducerbar."
+        },
+        {
+          "id": "keynote-gamma",
+          "type": "evidence",
+          "title": "Gamma är ett alternativ, inte arkitekturen.",
+          "body": "Gamma kan ge snabb baseline och webbdelning, men original, export, brandfidelitet, offline och fortsatt redigering måste bedömas i verkliga leveranser.",
+          "metric": "Pilot",
+          "items": [
+            {"title": "Behåll", "body": "Tills ersättaren är bättre i våra användningsfall."},
+            {"title": "Mät", "body": "Tid, kvalitet, export, drift och reproducerbarhet."}
+          ],
+          "notes": "Det här är inte ett Gamma-förbud. Det är en förändring från obligatorisk default till verifierat undantag."
+        },
+        {
+          "id": "keynote-governance",
+          "type": "timeline",
+          "title": "En URL skapar också ansvar.",
+          "body": "Publicering är en livscykel, inte slutet på produktionen.",
+          "items": [
+            {"title": "Klassificera", "body": "Sekretess, åtkomst och personuppgifter."},
+            {"title": "Publicera", "body": "Egen domän, release-ID och ansvarig ägare."},
+            {"title": "Förvalta", "body": "Länkar, aktualitet, analytics och kostnad."},
+            {"title": "Avpublicera", "body": "Redirect, arkiv och dokumenterad retention."}
+          ],
+          "notes": "Utmana artikelns förenkling: länken är lättare att dela, men någon måste äga den i fem år."
+        },
+        {
+          "id": "keynote-close",
+          "type": "cta",
+          "title": "Bygg en gång. Leverera avsiktligt.",
+          "body": "Välj format efter situation och verifiera det som faktiskt ska användas.",
+          "action": "Starta med artifact strategy",
+          "href": "#keynote-open",
+          "notes": "Avsluta med beslutet: nästa leverans börjar med routingfrågorna, inte med att öppna Gamma eller PowerPoint."
+        }
+      ]
+    },
+    {
+      "id": "strategy-story",
+      "mode": "site",
+      "title": "Kunskap behöver ett hem - och ett arkiv",
+      "audience": "Beslutsfattare som utformar kunskapsleveranser",
+      "purpose": "Låta mottagaren själv utforska argument, avvägningar och formatpolicy.",
+      "components": [
+        {
+          "id": "story-open",
+          "type": "hero",
+          "title": "Kunskap behöver ett hem - och ett arkiv.",
+          "body": "Webben kan bli den aktuella versionen. Slides styr scenen. PDF bevarar ögonblicket. Redigerbara filer lämnar över kontrollen.",
+          "eyebrow": "Asynkron strategiberättelse",
+          "nav": "Översikt"
+        },
+        {
+          "id": "story-thesis",
+          "type": "key_insight",
+          "title": "Artikelns riktning är rätt. Dess default är för bred.",
+          "body": "Webb löser navigering, uppdatering, sökbarhet och interaktion. Den löser inte automatiskt offline-risk, scenkontroll, arkivbeständighet, sekretess eller redigerbar överlämning.",
+          "nav": "Tes",
+          "items": [
+            {"title": "Starkast", "body": "Levande research, strategihubbar, förslag och material med flera läsvägar."},
+            {"title": "Svagast", "body": "Talarledda keynotes, formella arkiv och kundägda original."},
+            {"title": "Missad kostnad", "body": "Domän, åtkomst, GDPR, länkröta, drift och avpublicering."}
+          ]
+        },
+        {
+          "id": "story-matrix",
+          "type": "comparison",
+          "title": "Konsumtionssättet avgör formatet.",
+          "body": "Samma innehåll kan behöva flera leveranser, men varje leverans måste ha ett tydligt kontrakt.",
+          "nav": "Format",
+          "items": [
+            {"title": "Talarledd", "body": "Slides, notes, presenter mode, offline och PDF-backup."},
+            {"title": "Självstyrd", "body": "Semantisk webb, responsiv navigation, canonical URL och sökbarhet."}
+          ]
+        },
+        {
+          "id": "story-principle",
+          "type": "decision",
+          "title": "Webb och slides delar system - inte layout.",
+          "body": "Kanoniskt innehåll, källor och design tokens kan återanvändas. Webbens informationsarkitektur och slidens presentationssekvens utformas separat.",
+          "decision": "En responsiv webbplats är inte en utdragen 16:9-presentation.",
+          "nav": "Princip"
+        },
+        {
+          "id": "story-options",
+          "type": "data_visualization",
+          "title": "Kontroll och bekvämlighet drar åt olika håll.",
+          "body": "Illustrativa pilotvärden, inte produktbenchmark. Högre värde betyder mer kontroll över reproducerbar leverans.",
+          "nav": "Verktyg",
+          "items": [
+            {"label": "Statisk HTML", "value": 92},
+            {"label": "Reveal/Marp", "value": 82},
+            {"label": "Office/Slides", "value": 65},
+            {"label": "Gamma", "value": 48}
+          ]
+        },
+        {
+          "id": "story-lifecycle",
+          "type": "process",
+          "title": "Canonical betyder styrd release - inte alltid senaste utkast.",
+          "body": "En robust webbleverans kopplar URL, Git-revision och arkivsnapshot.",
+          "nav": "Livscykel",
+          "items": [
+            {"title": "Äg", "body": "Namnge ansvarig, domän och informationsklass."},
+            {"title": "Granska", "body": "Tillgänglighet, källor, sekretess och mobil."},
+            {"title": "Publicera", "body": "Märk release och bevara reproducerbar källa."},
+            {"title": "Förvalta", "body": "Kontrollera länkar, kostnad och aktualitet."}
+          ]
+        },
+        {
+          "id": "story-close",
+          "type": "cta",
+          "title": "Börja med beslutet, inte verktyget.",
+          "body": "Välj format efter publik, situation, livslängd, sekretess och redigeringsbehov.",
+          "action": "Tillbaka till översikten",
+          "href": "#story-open",
+          "purple": true,
+          "nav": "Nästa steg"
+        }
+      ]
+    },
+    {
+      "id": "client-proposal",
+      "mode": "hybrid",
+      "title": "Från AI-intresse till mätbar förmåga",
+      "audience": "Fiktiv kundsponsor och programägare",
+      "purpose": "Demonstrera ett interaktivt kundförslag med begriplig PDF-backup utan kunddata.",
+      "components": [
+        {
+          "id": "proposal-open",
+          "type": "hero",
+          "title": "Från AI-intresse till mätbar förmåga.",
+          "body": "Ett träningsprogram som gör AI praktiskt, ansvarsfullt och värdeskapande i vardagen.",
+          "eyebrow": "Representativt kundförslag - inga kunddata",
+          "nav": "Förslag"
+        },
+        {
+          "id": "proposal-outcome",
+          "type": "key_insight",
+          "title": "Förändringen syns i arbetet, inte i närvarolistan.",
+          "body": "Programmet kombinerar gemensam riktning, rollnära träning och uppföljning av faktiska arbetssätt.",
+          "nav": "Effekt",
+          "items": [
+            {"title": "Förstå", "body": "Gemensamma principer för ansvar och kvalitet."},
+            {"title": "Träna", "body": "Återkommande övning i verkliga arbetsuppgifter."},
+            {"title": "Mäta", "body": "Beteende, kvalitet, tid och beslut - inte bara användning."}
+          ]
+        },
+        {
+          "id": "proposal-program",
+          "type": "timeline",
+          "title": "Tolv veckor från riktning till vana.",
+          "body": "En modulär pilot som kan skalas efter evidens.",
+          "nav": "Program",
+          "items": [
+            {"title": "Vecka 1-2", "body": "Baseline, prioriterade roller och ansvar."},
+            {"title": "Vecka 3-6", "body": "Träningsloopar i konkreta arbetsflöden."},
+            {"title": "Vecka 7-10", "body": "Coachning, kvalitetssäkring och delade mönster."},
+            {"title": "Vecka 11-12", "body": "Effektmätning, beslut och skalningsplan."}
+          ]
+        },
+        {
+          "id": "proposal-calculator",
+          "type": "calculator",
+          "title": "Utforska den frigjorda kapaciteten.",
+          "body": "Justera antagandena. Resultatet är en diskussionsstart, inte ett affärslöfte.",
+          "nav": "Kalkyl",
+          "inputs": [
+            {"label": "Deltagare", "factor": "people", "value": 40},
+            {"label": "Timmar sparade per person/månad", "factor": "hours", "value": 4},
+            {"label": "Realiserad andel (%)", "factor": "adoption", "value": 60}
+          ],
+          "fallback": "Exempel med 40 deltagare, 4 timmar och 60 procent realisering: 96 timmar frigjord kapacitet per månad."
+        },
+        {
+          "id": "proposal-governance",
+          "type": "comparison",
+          "title": "Förmåga och ansvar växer tillsammans.",
+          "body": "Träningen kombineras med tydliga ramar för vad som får automatiseras och hur kvalitet följs upp.",
+          "nav": "Ansvar",
+          "items": [
+            {"title": "Mänsklig kontroll", "body": "Beslut, extern kommunikation och känsliga data har namngivna ansvariga."},
+            {"title": "Mätbar kvalitet", "body": "Stickprov, feedback och utfall kompletterar aktivitetsmått."}
+          ]
+        },
+        {
+          "id": "proposal-decision",
+          "type": "decision",
+          "title": "Börja avgränsat och skala på bevis.",
+          "body": "Piloten startar med prioriterade roller och tydliga framgångskriterier.",
+          "decision": "Beslutspunkt efter tolv veckor: skala, justera eller avsluta.",
+          "nav": "Beslut"
+        },
+        {
+          "id": "proposal-close",
+          "type": "cta",
+          "title": "Bygg AI-förmåga från insidan.",
+          "body": "Nästa steg är en 90-minuters designworkshop med sponsor, programägare och representativa användare.",
+          "action": "Granska antagandena igen",
+          "href": "#proposal-calculator",
+          "purple": true,
+          "nav": "Nästa steg"
+        }
+      ]
+    }
+  ]
+}
