@@ -5,6 +5,7 @@
 ---
 
 ### 2026-09-08
+- Nytt system väljer rätt format för presentationer, kunskapssajter, PDF och redigerbara leveranser
 - link Claude guidance to shared agent base
 - add AI-agnostic Codex support
 ### 2026-06-12
