@@ -2,7 +2,7 @@
 
 **Vi demokratiserar AI.**
 
-En metodbank med skills, workflows och templates som gör att din AI-assistent arbetar strukturerat, konsekvent och professionellt — oavsett om du är tekniker eller inte.
+En AI-agnostisk metodbank med skills, workflows och templates som gör att din AI-assistent arbetar strukturerat, konsekvent och professionellt — oavsett om du använder Claude, ChatGPT, Codex eller en annan kompatibel agent.
 
 ---
 
@@ -63,7 +63,13 @@ cd superintelligent-ai-os
 bash scripts/install.sh
 ```
 
-Öppna sedan i Claude Code med `claude .` eller peka Cowork på mappen.
+För Codex, länka därefter in repots gemensamma skills:
+
+```bash
+bash scripts/install-codex.sh
+```
+
+Öppna sedan repot i valfri lokal AI-klient. Claude läser `CLAUDE.md`; Codex och andra kompatibla agenter läser `AGENTS.md`.
 
 För att sätta upp automatisk commit och push till GitHub (för team som bidrar till repot), se [`scripts/install-sync.sh`](scripts/install-sync.sh).
 
@@ -78,6 +84,8 @@ För att sätta upp automatisk commit och push till GitHub (för team som bidrar
 | `/templates` | Outputformat för dokument, poster och rapporter |
 | `/connectors` | Setup-guider för externa verktyg (M365, Outlook, GitHub m.fl.) |
 | `/scripts` | Installationsskript och säkerhetskontroll |
+
+`AGENTS.md` är den gemensamma agentinstruktionen. Agentspecifika filer kompletterar den utan att duplicera skills eller workflows.
 
 ---
 

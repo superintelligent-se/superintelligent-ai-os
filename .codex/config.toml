@@ -1,0 +1,3 @@
+# Repo-specifik Codex-konfiguration. Global personlig konfiguration, installerade
+# plugins, credentials och sessionsdata hör hemma i ~/.codex och ska inte kopieras hit.
+project_doc_max_bytes = 65536
